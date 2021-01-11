@@ -17,6 +17,12 @@ class Sistema extends CI_Controller {
 
         $data = array(
             'titulo' => 'Editar informações do sistema',
+            
+            'scripts' => array(
+                'vendor/mask/jquery.mask.min.js',
+                'vendor/mask/app.js',
+            ),
+            
             'sistema' => $this->core_model->get_by_id('sistema', array('sistema_id' => 1)),
         );
 
@@ -25,7 +31,7 @@ class Sistema extends CI_Controller {
         $this->form_validation->set_rules('sistema_nome_fantasia', 'Nome fantasia', 'required|min_length[10]|max_length[145]');
         $this->form_validation->set_rules('sistema_cnpj', '', 'required|exact_length[18]'); //18 char
         
-        $this->form_validation->set_rules('sistema_ie', '', 'required||max_length[25]');
+        $this->form_validation->set_rules('sistema_ie', '', 'required|max_length[25]');
         $this->form_validation->set_rules('sistema_telefone_fixo', '', 'required|max_length[25]');
         $this->form_validation->set_rules('sistema_telefone_movel', '', 'required|max_length[25]');
         
@@ -37,7 +43,7 @@ class Sistema extends CI_Controller {
         $this->form_validation->set_rules('sistema_numero', 'Número', 'required|max_length[25]');
         $this->form_validation->set_rules('sistema_cidade', 'Cidade', 'required|max_length[45]');
         
-        $this->form_validation->set_rules('sistema_Estado', 'UF', 'required|max_length[2]');
+        $this->form_validation->set_rules('sistema_estado', 'UF', 'required|max_length[2]');
         $this->form_validation->set_rules('sistema_txt_ordem_servico', 'Texto da ordem de serviço e venda', 'max_length[500]');
 
 
