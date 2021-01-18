@@ -192,27 +192,7 @@ class Clientes extends CI_Controller {
 
             if ($this->form_validation->run()) {
 
-                /*
-                 * [cliente_nome] => Leonardo
-                  [cliente_sobrenome] => Pereira
-                  [cliente_data_nascimento] => 2020-06-08
-                  [cliente_cpf] => 082.378.059-76
-                  [cliente_rg_ie] => 36.515.388-6
-                  [cliente_email] => leogames850@gmail.com
-                  [cliente_telefone] => (43) 3333-3333
-                  [cliente_celular] => (43) 3333-3333
-                  [cliente_endereco] => rua julia borges pacheco
-                  [cliente_numero_endereco] => 59
-                  [cliente_complemento] => casa
-                  [cliente_bairro] => sussumo assanuma
-                  [cliente_cep] => 86280-000
-                  [cliente_cidade] => urai
-                  [cliente_estado] => PR
-                  [cliente_ativo] => 0
-                  [cliente_obs] => estude um dia vc chega lá!!!
-                  [cliente_tipo] => 1
-                  [cliente_id] => 1
-                 */
+                
 
                 $data = elements(
                         array(

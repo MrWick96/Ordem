@@ -103,7 +103,7 @@
                                         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                                         <div class="modal-footer">
                                             <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Não</button>
-                                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('usuarios/del'. $user->id); ?>">Sim</a>
+                                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('usuarios/del/'. $user->id); ?>">Sim</a>
                                         </div>
                                     </div>
                                 </div>
