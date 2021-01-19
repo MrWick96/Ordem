@@ -389,7 +389,7 @@ class Fornecedores extends CI_Controller {
             redirect('fornecedores');
         }else{
             
-            $this->core_model->delete('cliente', array('fornecedor_id' => $fornecedor_id));
+            $this->core_model->delete('fornecedores', array('fornecedor_id' => $fornecedor_id));
             redirect('fornecedores');
         }
         
