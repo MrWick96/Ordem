@@ -106,7 +106,7 @@ class Vendedores extends CI_Controller {
                     'vendor/mask/app.js',
                 ),
                 
-                'vendedor_codigo' => $this->core_model->generate_unique_code('vendedores', 'numeric', 'int', 8, 'vendedor_codigo'),
+                'vendedor_codigo' => $this->core_model->generate_unique_code('vendedores', 'numeric', 8, 'vendedor_codigo'),
             );
 
 //            echo '<pre>';
