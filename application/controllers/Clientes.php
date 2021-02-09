@@ -80,7 +80,7 @@ class Clientes extends CI_Controller {
 
         if ($this->form_validation->run()) {
 
-            
+
 
             $data = elements(
                     array(
@@ -129,7 +129,7 @@ class Clientes extends CI_Controller {
                     'vendor/mask/jquery.mask.min.js',
                     'vendor/mask/app.js',
                     'js/clientes.js'
-                ),    
+                ),
             );
 
 //                echo '<pre>';
@@ -192,7 +192,17 @@ class Clientes extends CI_Controller {
 
             if ($this->form_validation->run()) {
 
-                
+                $cliente_ativo = $this->input->post('cliente_ativo');
+
+                if ($this->db->table_exists('contas_receber')) {
+
+                    if ($cliente_ativo == 0 && $this->core_model->get_by_id('contas_receber', array('conta_receber_cliente_id' => $cliente_id, 'conta_receber_status' => 0))) {
+                        $this->session->set_flashdata('info', 'Estes cliente não pode ser desativado, pois está sendo utilizado em <i class="fas fa-hand-holding-usd"></i>&nbsp;Contas a receber');
+                        redirect('clientes');
+                    }
+                }
+
+
 
                 $data = elements(
                         array(
@@ -420,18 +430,17 @@ class Clientes extends CI_Controller {
             return TRUE;
         }
     }
-    
+
     public function del($cliente_id = NULL) {
-        
-        if(!$cliente_id || !$this->core_model->get_by_id('clientes', array('cliente_id' => $cliente_id))){
+
+        if (!$cliente_id || !$this->core_model->get_by_id('clientes', array('cliente_id' => $cliente_id))) {
             $this->session->set_flashdata('error', 'Cliente não encontrado');
             redirect('clientes');
-        }else{
-            
+        } else {
+
             $this->core_model->delete('clientes', array('cliente_id' => $cliente_id));
             redirect('clientes');
         }
-        
     }
 
 }

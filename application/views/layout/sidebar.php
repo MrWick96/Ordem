@@ -4,18 +4,20 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('/'); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+            <i class="fas fa-laptop"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">FFU! System</div>
+        <div class="sidebar-brand-text mx-3">LP! System</div>
     </a>
 
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+
+
     <!-- Heading -->
     <div class="sidebar-heading">
-        Cadastros
+        Módulos
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -30,6 +32,41 @@
                 <a title="Gerenciar clientes" class="collapse-item" href="<?php echo base_url('clientes'); ?>"><i class="fas fa-user-tie text-gray-900"></i>&nbsp;&nbsp;Clientes</a>
                 <a title="Gerenciar fornecedores" class="collapse-item" href="<?php echo base_url('fornecedores'); ?>"><i class="fas fa-truck text-gray-900"></i>&nbsp;&nbsp;Fornecedores</a>
                 <a title="Gerenciar vendedores" class="collapse-item" href="<?php echo base_url('vendedores'); ?>"><i class="fas fa-user-secret text-gray-900"></i>&nbsp;&nbsp;Vendedores</a>
+                <a title="Gerenciar serviços" class="collapse-item" href="<?php echo base_url('servicos'); ?>"><i class="fas fa-laptop text-gray-900"></i></i>&nbsp;&nbsp;Serviços</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTree" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-box-open"></i>
+            <span>Estoque</span>
+        </a>
+        <div id="collapseTree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Escolha uma opção:</h6>
+                <a title="Gerenciar produtos" class="collapse-item" href="<?php echo base_url('produtos'); ?>"><i class="fas fa-cash-register"></i>&nbsp;&nbsp;Produtos</a>
+                <a title="Gerenciar marcas" class="collapse-item" href="<?php echo base_url('marcas'); ?>"><i class="fas fa-layer-group text-gray-900"></i>&nbsp;&nbsp;Marcas</a>        
+                <a title="Gerenciar categorias" class="collapse-item" href="<?php echo base_url('categorias'); ?>"><i class="fas fa-tag text-gray-900"></i>&nbsp;&nbsp;Categorias</a>
+
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-dollar-sign"></i>
+            <span>Financeiro</span>
+        </a>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Escolha uma opção:</h6>
+                <a title="Gerenciar contas a pagar" class="collapse-item" href="<?php echo base_url('pagar'); ?>"><i class="fas fa-piggy-bank"></i>&nbsp;&nbsp;Contas a pagar</a>
+                <a title="Gerenciar contas a receber" class="collapse-item" href="<?php echo base_url('receber'); ?>"><i class="fas fa-hand-holding-usd"></i>&nbsp;&nbsp;Contas a receber</a>
+                <a title="Gerenciar formas de pagamentos" class="collapse-item" href="<?php echo base_url('modulo'); ?>"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Formas de pagamento</a>
+                
+
             </div>
         </div>
     </li>
