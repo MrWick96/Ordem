@@ -37,8 +37,7 @@
             </div>
 
         <?php endif; ?>
-
-
+            
 
         <?php if ($message = $this->session->flashdata('error')): ?>
             <div class="row">
@@ -62,7 +61,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a title="Cadastrar nova forma de pagamento" href="<?php echo base_url('formas_pagamentos/add') ?>" class="btn btn-success btn-sm float-right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Nova</a>   
+                <a title="Cadastrar nova forma de pagamento" href="<?php echo base_url('modulo/add') ?>" class="btn btn-success btn-sm float-right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Nova</a>   
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -84,7 +83,7 @@
                                     <td class="text-center pr-4"><?php echo ($forma->forma_pagamento_aceita_parc == 1 ? '<span class="badge bg-info text-white btn-sm">Sim</span>' : '<span class="badge bg-danger text-white btn-sm">Não</span>') ?> </td>
                                     <td class="text-center pr-4"><?php echo ($forma->forma_pagamento_ativa == 1 ? '<span class="badge bg-info text-white btn-sm">Sim</span>' : '<span class="badge bg-warning text-white btn-sm">Não</span>') ?> </td>
                                     <td class="text-right">
-                                        <a title="Editar" href="<?php echo base_url('formas_pagamentos/edit/' . $forma->forma_pagamento_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-user-edit"></i></a>
+                                        <a title="Editar" href="<?php echo base_url('modulo/edit/' . $forma->forma_pagamento_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-user-edit"></i></a>
                                         <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#forma-<?php echo $forma->forma_pagamento_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-user-times"></i></a>
                                     </td>
                                 </tr>

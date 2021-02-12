@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Jan-2021 às 02:21
+-- Tempo de geração: 12-Fev-2021 às 04:34
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.0
 
@@ -20,65 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `ordem`
 --
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `clientes`
---
-
-CREATE TABLE `clientes` (
-  `cliente_id` int(11) NOT NULL,
-  `cliente_data_cadastro` timestamp NULL DEFAULT current_timestamp(),
-  `cliente_tipo` tinyint(1) DEFAULT NULL,
-  `cliente_nome` varchar(45) NOT NULL,
-  `cliente_sobrenome` varchar(150) NOT NULL,
-  `cliente_data_nascimento` date NOT NULL,
-  `cliente_cpf_cnpj` varchar(20) NOT NULL,
-  `cliente_rg_ie` varchar(20) NOT NULL,
-  `cliente_email` varchar(50) NOT NULL,
-  `cliente_telefone` varchar(20) NOT NULL,
-  `cliente_celular` varchar(20) NOT NULL,
-  `cliente_cep` varchar(10) NOT NULL,
-  `cliente_endereco` varchar(155) NOT NULL,
-  `cliente_numero_endereco` varchar(20) NOT NULL,
-  `cliente_bairro` varchar(45) NOT NULL,
-  `cliente_complemento` varchar(145) NOT NULL,
-  `cliente_cidade` varchar(105) NOT NULL,
-  `cliente_estado` varchar(2) NOT NULL,
-  `cliente_ativo` tinyint(1) NOT NULL,
-  `cliente_obs` tinytext DEFAULT NULL,
-  `cliente_data_alteracao` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `fornecedores`
---
-
-CREATE TABLE `fornecedores` (
-  `fornecedor_id` int(11) NOT NULL,
-  `fornecedor_data_cadastro` timestamp NULL DEFAULT current_timestamp(),
-  `fornecedor_razao` varchar(200) DEFAULT NULL,
-  `fornecedor_nome_fantasia` varchar(145) DEFAULT NULL,
-  `fornecedor_cnpj` varchar(20) DEFAULT NULL,
-  `fornecedor_ie` varchar(20) DEFAULT NULL,
-  `fornecedor_telefone` varchar(20) DEFAULT NULL,
-  `fornecedor_celular` varchar(20) DEFAULT NULL,
-  `fornecedor_email` varchar(100) DEFAULT NULL,
-  `fornecedor_contato` varchar(45) DEFAULT NULL,
-  `fornecedor_cep` varchar(10) DEFAULT NULL,
-  `fornecedor_endereco` varchar(145) DEFAULT NULL,
-  `fornecedor_numero_endereco` varchar(20) DEFAULT NULL,
-  `fornecedor_bairro` varchar(45) DEFAULT NULL,
-  `fornecedor_complemento` varchar(45) DEFAULT NULL,
-  `fornecedor_cidade` varchar(45) DEFAULT NULL,
-  `fornecedor_estado` varchar(2) DEFAULT NULL,
-  `fornecedor_ativo` tinyint(1) DEFAULT NULL,
-  `fornecedor_obs` tinytext DEFAULT NULL,
-  `fornecedor_data_alteracao` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -178,7 +119,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$MpRUw86seo9NhAfU/29xxeMenrrryCc3T4mdSq0gbXJWfGnBRKFyG', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1611098073, 1, 'Admin-3lkk', 'istrator-llkk', 'ADMIN', '0');
+(1, '127.0.0.1', 'administrator', '$2y$12$MpRUw86seo9NhAfU/29xxeMenrrryCc3T4mdSq0gbXJWfGnBRKFyG', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1613090133, 1, 'Admin-3lkk', 'istrator-llkk', 'ADMIN', '0');
 
 -- --------------------------------------------------------
 
@@ -199,57 +140,9 @@ CREATE TABLE `users_groups` (
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (7, 1, 1);
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `vendedores`
---
-
-CREATE TABLE `vendedores` (
-  `vendedor_id` int(11) NOT NULL,
-  `vendedor_codigo` varchar(10) NOT NULL,
-  `vendedor_data_cadastro` timestamp NULL DEFAULT current_timestamp(),
-  `vendedor_nome_completo` varchar(145) NOT NULL,
-  `vendedor_cpf` varchar(25) NOT NULL,
-  `vendedor_rg` varchar(25) NOT NULL,
-  `vendedor_telefone` varchar(15) DEFAULT NULL,
-  `vendedor_celular` varchar(15) DEFAULT NULL,
-  `vendedor_email` varchar(45) DEFAULT NULL,
-  `vendedor_cep` varchar(15) DEFAULT NULL,
-  `vendedor_endereco` varchar(45) DEFAULT NULL,
-  `vendedor_numero_endereco` varchar(25) DEFAULT NULL,
-  `vendedor_complemento` varchar(45) DEFAULT NULL,
-  `vendedor_bairro` varchar(45) DEFAULT NULL,
-  `vendedor_cidade` varchar(45) DEFAULT NULL,
-  `vendedor_estado` varchar(2) DEFAULT NULL,
-  `vendedor_ativo` tinyint(1) DEFAULT NULL,
-  `vendedor_obs` tinytext DEFAULT NULL,
-  `vendedor_data_alteracao` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `vendedores`
---
-
-INSERT INTO `vendedores` (`vendedor_id`, `vendedor_codigo`, `vendedor_data_cadastro`, `vendedor_nome_completo`, `vendedor_cpf`, `vendedor_rg`, `vendedor_telefone`, `vendedor_celular`, `vendedor_email`, `vendedor_cep`, `vendedor_endereco`, `vendedor_numero_endereco`, `vendedor_complemento`, `vendedor_bairro`, `vendedor_cidade`, `vendedor_estado`, `vendedor_ativo`, `vendedor_obs`, `vendedor_data_alteracao`) VALUES
-(1, '09842571', '2020-01-28 01:24:17', 'Lucio Antonio de Souza - ALOUUUU', '946.873.070-00', '36.803.319-3', '(41) 99999-9999', '(41) 99999-9999', 'vendedor@gmail.com', '80530-000', 'Rua das vendas', '45', '', 'Centro', 'Curitiba', 'PR', 1, '', '2021-01-19 19:22:12'),
-(2, '03841956', '2020-01-29 22:22:27', 'Sara Betina', '582.071.790-23', '25.287.429-8', '(41) 88884-4444', '(41) 88884-4444', 'sara@gmail.com', '80540-120', 'Rua das vendas', '45', '', 'Centro', 'Joinville', 'SC', 1, '', '2021-01-19 19:21:53');
-
 --
 -- Índices para tabelas despejadas
 --
-
---
--- Índices para tabela `clientes`
---
-ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`cliente_id`);
-
---
--- Índices para tabela `fornecedores`
---
-ALTER TABLE `fornecedores`
-  ADD PRIMARY KEY (`fornecedor_id`);
 
 --
 -- Índices para tabela `groups`
@@ -289,26 +182,8 @@ ALTER TABLE `users_groups`
   ADD KEY `fk_users_groups_groups1_idx` (`group_id`);
 
 --
--- Índices para tabela `vendedores`
---
-ALTER TABLE `vendedores`
-  ADD PRIMARY KEY (`vendedor_id`);
-
---
 -- AUTO_INCREMENT de tabelas despejadas
 --
-
---
--- AUTO_INCREMENT de tabela `clientes`
---
-ALTER TABLE `clientes`
-  MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de tabela `fornecedores`
---
-ALTER TABLE `fornecedores`
-  MODIFY `fornecedor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `groups`
@@ -320,7 +195,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT de tabela `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `sistema`
@@ -339,12 +214,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `users_groups`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT de tabela `vendedores`
---
-ALTER TABLE `vendedores`
-  MODIFY `vendedor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para despejos de tabelas

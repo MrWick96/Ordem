@@ -29,9 +29,9 @@
             </div>
             <div class="card-body">
 
-                <form class="user" method="POST" name="form_edit">
+                <form class="user" method="POST" name="form_add">
 
-                    <p><strong><i class="fas fa-clock"></i>&nbsp;&nbsp;Última alteração:&nbsp;</strong><?php echo formata_data_banco_com_hora($forma_pagamento->forma_pagamento_data_alteracao); ?></p>
+                    
 
                     <fieldset class="mt-4 border p-2">
 
@@ -41,7 +41,7 @@
 
                             <div class="col-md-6">
                                 <label>Nome da forma de pagamento</label>
-                                <input type="text" class="form-control" name="forma_pagamento_nome" placeholder="Nome da forma de pagamento" value="<?php echo $forma_pagamento->forma_pagamento_nome; ?>">
+                                <input type="text" class="form-control" name="forma_pagamento_nome" placeholder="Nome da forma de pagamento" value="<?php echo set_value('forma_pagamento_nome') ?>">
                                 <?php echo form_error('forma_pagamento_nome', '<div class="form-text text-danger">', '</div>'); ?>
                             </div>
 
@@ -49,16 +49,16 @@
                             <div class="col-md-3">
                                 <label>Forma de pagamento ativa</label>
                                 <select class="custom-select" name="forma_pagamento_ativa">
-                                    <option value="0" <?php echo ($forma_pagamento->forma_pagamento_ativa == 0 ? 'selected' : ''); ?>>Não</option>
-                                    <option value="1" <?php echo ($forma_pagamento->forma_pagamento_ativa == 1 ? 'selected' : ''); ?>>Sim</option>
+                                    <option value="0">Não</option>
+                                    <option value="1">Sim</option>
                                 </select>                              
                             </div> 
 
                             <div class="col-md-3">
                                 <label>Aceita parcelamento</label>
                                 <select class="custom-select" name="forma_pagamento_aceita_parc">
-                                    <option value="0" <?php echo ($forma_pagamento->forma_pagamento_aceita_parc == 0 ? 'selected' : ''); ?>>Não</option>
-                                    <option value="1" <?php echo ($forma_pagamento->forma_pagamento_aceita_parc == 1 ? 'selected' : ''); ?>>Sim</option>
+                                    <option value="0">Não</option>
+                                    <option value="1">Sim</option>
                                 </select>                              
                             </div> 
 
@@ -66,12 +66,6 @@
 
                     </fieldset>
                     
-                    
-
-                    <div class="mb-3 row">
-                        <input type="hidden" name="forma_pagamento_id" value="<?php echo $forma_pagamento->forma_pagamento_id; ?>"/>
-                    </div>
-
                     <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
                 </form>
 
