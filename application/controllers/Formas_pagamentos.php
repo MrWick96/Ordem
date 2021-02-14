@@ -145,7 +145,7 @@ class Formas_pagamentos extends CI_Controller {
 
         $forma_pagamento_id = $this->input->post('forma_pagamento_id');
 
-        if ($this->core_model->get_by_id('formas_pagamento', array('forma_pagamento_nome' => $forma_pagamento_nome, 'forma_pagamento_id !=' => $forma_pagamento_id))) {
+        if ($this->core_model->get_by_id('formas_pagamentos', array('forma_pagamento_nome' => $forma_pagamento_nome, 'forma_pagamento_id !=' => $forma_pagamento_id))) {
             $this->form_validation->set_message('check_pagamento_nome', 'Essa forma de pagamento já existe');
             return FALSE;
         } else {

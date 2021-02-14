@@ -3,7 +3,7 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('/'); ?>">
-        <div class="sidebar-brand-icon rotate-n-15">
+        <div class="sidebar-brand-icon rotate-n-0">
             <i class="fas fa-laptop"></i>
         </div>
         <div class="sidebar-brand-text mx-3">LP! System</div>
@@ -19,6 +19,20 @@
     <div class="sidebar-heading">
         Módulos
     </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOs" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Vendas</span>
+        </a>
+        <div id="collapseOs" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Escolha uma opção:</h6>
+                <a title="Gerenciar ordem de serviçoes" class="collapse-item" href="<?php echo base_url('os'); ?>"><i class="fas fa-shopping-basket text-gray-900"></i>&nbsp;&nbsp;Ordem de serviços</a>              
+            </div>
+        </div>
+    </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
@@ -65,7 +79,7 @@
                 <a title="Gerenciar contas a pagar" class="collapse-item" href="<?php echo base_url('pagar'); ?>"><i class="fas fa-piggy-bank"></i>&nbsp;&nbsp;Contas a pagar</a>
                 <a title="Gerenciar contas a receber" class="collapse-item" href="<?php echo base_url('receber'); ?>"><i class="fas fa-hand-holding-usd"></i>&nbsp;&nbsp;Contas a receber</a>
                 <a title="Gerenciar formas de pagamentos" class="collapse-item" href="<?php echo base_url('modulo'); ?>"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Formas de pagamento</a>
-                
+
 
             </div>
         </div>
