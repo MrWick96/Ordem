@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Fev-2021 às 15:12
+-- Tempo de geração: 17-Fev-2021 às 18:05
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.0
 
@@ -106,7 +106,8 @@ INSERT INTO `contas_pagar` (`conta_pagar_id`, `conta_pagar_fornecedor_id`, `cont
 (3, 3, '2021-07-08', '2021-02-05 08:41:23', '200.00', 1, '', '2021-02-05 23:41:23'),
 (5, 3, '2021-05-08', NULL, '500.00', 0, '', '2021-02-05 23:46:06'),
 (6, 3, '2021-02-06', NULL, '500.00', 0, '', '2021-02-07 00:37:57'),
-(7, 3, '2021-02-10', '2021-02-10 09:32:54', '200.00', 1, 'pagar hoje', '2021-02-11 00:32:54');
+(7, 3, '2021-02-10', '2021-02-10 09:32:54', '200.00', 1, 'pagar hoje', '2021-02-11 00:32:54'),
+(8, 3, '2021-02-16', NULL, '1,000.00', 0, 'pagar mais tarde', '2021-02-16 15:55:03');
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,7 @@ CREATE TABLE `contas_receber` (
 INSERT INTO `contas_receber` (`conta_receber_id`, `conta_receber_cliente_id`, `conta_receber_data_vencimento`, `conta_receber_data_pagamento`, `conta_receber_valor`, `conta_receber_status`, `conta_receber_obs`, `conta_receber_data_alteracao`) VALUES
 (1, 5, '2020-02-28', '2021-02-06 08:22:15', '150,226.22', 1, '', '2021-02-06 11:22:15'),
 (2, 6, '2020-02-21', '2020-02-28 18:33:19', '350.00', 1, NULL, '2021-02-06 04:45:28'),
-(5, 5, '2021-02-06', NULL, '500.00', 0, '', '2021-02-07 00:38:50');
+(5, 5, '2021-02-06', '2021-02-16 12:55:49', '500.00', 1, '', '2021-02-16 15:55:49');
 
 -- --------------------------------------------------------
 
@@ -153,10 +154,11 @@ CREATE TABLE `formas_pagamentos` (
 --
 
 INSERT INTO `formas_pagamentos` (`forma_pagamento_id`, `forma_pagamento_nome`, `forma_pagamento_aceita_parc`, `forma_pagamento_ativa`, `forma_pagamento_data_alteracao`) VALUES
-(1, 'Cartão de crédito', 0, 1, '2020-02-14 23:46:46'),
+(1, 'Cartão de crédito', 0, 0, '2021-02-16 22:30:33'),
 (2, 'Dinheiro', 0, 1, '2020-01-29 21:43:54'),
 (3, 'Boleto bancário', 1, 1, '2021-02-13 14:12:06'),
-(4, 'Conta Bancaria', 1, 1, '2021-02-11 00:31:27');
+(4, 'Conta Bancaria', 1, 1, '2021-02-11 00:31:27'),
+(6, 'Pix', 0, 1, '2021-02-16 22:32:11');
 
 -- --------------------------------------------------------
 
@@ -361,7 +363,7 @@ CREATE TABLE `servicos` (
 --
 
 INSERT INTO `servicos` (`servico_id`, `servico_nome`, `servico_preco`, `servico_descricao`, `servico_ativo`, `servico_data_alteracao`) VALUES
-(1, 'Limpeza geral G - att', '60,00', 'GGGG Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.', 0, '2021-01-20 19:38:56'),
+(1, 'Limpeza geral G - att', '60,00', 'GGGG Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.', 1, '2021-02-14 16:56:46'),
 (2, 'Solda elétrica', '80,00', 'Solda elétrica', 1, '2020-02-13 22:10:21'),
 (3, 'Restauração de componentes', '120,00', 'Restauração de componentes', 1, '2020-02-13 22:11:29'),
 (4, 'Formataçao de Pc', '65,00', 'formatamos pc em geral', 1, '2021-01-20 19:24:51');
@@ -431,7 +433,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$MpRUw86seo9NhAfU/29xxeMenrrryCc3T4mdSq0gbXJWfGnBRKFyG', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1613300765, 1, 'Admin-3lkk', 'istrator-llkk', 'ADMIN', '0');
+(1, '127.0.0.1', 'administrator', '$2y$12$MpRUw86seo9NhAfU/29xxeMenrrryCc3T4mdSq0gbXJWfGnBRKFyG', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1613580432, 1, 'Admin-3lkk', 'istrator-llkk', 'ADMIN', '0');
 
 -- --------------------------------------------------------
 
@@ -629,7 +631,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de tabela `contas_pagar`
 --
 ALTER TABLE `contas_pagar`
-  MODIFY `conta_pagar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `conta_pagar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `contas_receber`
@@ -641,7 +643,7 @@ ALTER TABLE `contas_receber`
 -- AUTO_INCREMENT de tabela `formas_pagamentos`
 --
 ALTER TABLE `formas_pagamentos`
-  MODIFY `forma_pagamento_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `forma_pagamento_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `fornecedores`

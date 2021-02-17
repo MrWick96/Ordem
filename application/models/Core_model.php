@@ -133,7 +133,7 @@ class Core_model extends CI_Model {
 
         if ($busca) {
 
-            $this->db->like('servico_descricao', $busca, 'both');
+            $this->db->like('servico_descricao', $busca, 'BOTH');
             $this->db->where('servico_ativo', 1);
             return $this->db->get('servicos')->result();
         }else{

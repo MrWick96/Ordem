@@ -73,6 +73,7 @@ class Ordem_servicos extends CI_Controller {
                     ),
                     'scripts' => array(
                         'vendor/autocomplete/jquery-migrate.js', //vem primeiro
+                        //'vendor/autocomplete/jquery-migrate.min.map', 
                         'vendor/calcx/jquery-calx-sample-2.2.8.min.js',
                         'vendor/calcx/os.js',
                         'vendor/select2/select2.min.js',
