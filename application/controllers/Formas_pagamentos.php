@@ -44,7 +44,7 @@ class Formas_pagamentos extends CI_Controller {
             redirect('modulo');
         } else {
 
-            $this->form_validation->set_rules('forma_pagamento_nome', 'Nome da foma de pagamento', 'trim|required|min_length[4]|max_length[45]|callback_check_pagamento_nome');
+            $this->form_validation->set_rules('forma_pagamento_nome', 'Nome da foma de pagamento', 'trim|required|min_length[2]|max_length[45]|callback_check_pagamento_nome');
 
             if ($this->form_validation->run()) {
 
@@ -106,7 +106,7 @@ class Formas_pagamentos extends CI_Controller {
 
     public function add() {
 
-        $this->form_validation->set_rules('forma_pagamento_nome', 'Nome da foma de pagamento', 'trim|required|min_length[4]|max_length[45]|is_unique[formas_pagamentos.forma_pagamento_nome]');
+        $this->form_validation->set_rules('forma_pagamento_nome', 'Nome da foma de pagamento', 'trim|required|min_length[2]|max_length[45]|is_unique[formas_pagamentos.forma_pagamento_nome]');
 
         if ($this->form_validation->run()) {
 

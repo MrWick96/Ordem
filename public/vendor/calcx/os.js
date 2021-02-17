@@ -23,7 +23,7 @@ if ($counter > 0) {
         /*Armazena na variável produto, o valor contido no input 'produto_descricao'*/
         var servico = $(this).find("input.servico_descricao").val();
 
-        /*Armazena o resultado da verificação da existência do 'produto' no array 'servicos_adicionados'*/
+        /*Armazena o resultado da verificação da existência do 'servico' no array 'servicos_adicionados'*/
         result_add = servicos_adicionados.includes(servico);
 
         /*Caso não exista (false), adiciona o produto no array 'servicos_adicionados'*/
@@ -32,7 +32,7 @@ if ($counter > 0) {
             /*Adiciona apenas servicos diferentes de 'undefined'*/
             if (typeof servico !== 'undefined') {
                 servicos_adicionados.push(servico);
-                console.log(servicos_adicionados);
+                //console.log(servicos_adicionados);
             }
         }
 

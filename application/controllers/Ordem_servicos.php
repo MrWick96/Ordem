@@ -69,7 +69,7 @@ class Ordem_servicos extends CI_Controller {
                     'styles' => array(
                         'vendor/select2/select2.min.css',
                         'vendor/autocomplete/jquery-ui.css',
-                        'vendor/autocomplete/estilos.css',
+                        'vendor/autocomplete/estilo.css',
                     ),
                     'scripts' => array(
                         'vendor/autocomplete/jquery-migrate.js', //vem primeiro
@@ -85,7 +85,7 @@ class Ordem_servicos extends CI_Controller {
                     'os_tem_servicos' => $this->ordem_servicos_model->get_all_servicos_by_ordem($ordem_servico_id),
                 );
 
-                $ordem_servico = $data['orden_servico'] = $this->ordem_servicos_model->get_by_id($ordem_servico_id);
+                $ordem_servico = $data['ordem_servico'] = $this->ordem_servicos_model->get_by_id($ordem_servico_id);
 
 //                echo '<pre>';
 //                print_r($ordem_servico);
