@@ -94,7 +94,7 @@ class Ordem_servicos_model extends CI_Model {
             ]);
 
             $this->db->join('servicos', 'servico_id = ordem_ts_id_servico', 'LEFT');
-            $this->db->where('ordem_ts_id_ordem_servico', $ordem_serviço_id);
+            $this->db->where('ordem_ts_id_ordem_servico', $ordem_servico_id);
         }
 
         return $this->db->get('ordem_tem_servicos')->row();

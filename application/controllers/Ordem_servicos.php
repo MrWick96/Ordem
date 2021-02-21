@@ -172,6 +172,7 @@ class Ordem_servicos extends CI_Controller {
     }
 
     public function pdf($ordem_servico_id = NULL) {
+        
 
         if (!$ordem_servico_id || !$this->core_model->get_by_id('ordens_servicos', array('ordem_servico_id' => $ordem_servico_id))) {
             $this->session->set_flashdata('error', 'Ordem de serviço não encontrada');
@@ -286,7 +287,7 @@ class Ordem_servicos extends CI_Controller {
             //fasle -> abre pdf no navegador
             //true -> faz o download
             $this->pdf->createPDF($html, $file_name, false);
-            
+                
         }
     }
 

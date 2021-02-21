@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('Ação não permitida');
 class Login extends CI_Controller {
 
     public function index() {
-        
+             
             $data = array(
                 'titulo' => 'Login',
             );
@@ -13,6 +13,7 @@ class Login extends CI_Controller {
             $this->load->view('layout/header');
             $this->load->view('login/index');
             $this->load->view('layout/footer');
+            
 
     }
     
