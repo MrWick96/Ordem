@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Fev-2021 às 18:05
+-- Tempo de geração: 22-Fev-2021 às 18:13
 -- Versão do servidor: 10.4.17-MariaDB
--- versão do PHP: 8.0.0
+-- versão do PHP: 7.4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -274,7 +274,9 @@ CREATE TABLE `ordem_tem_servicos` (
 INSERT INTO `ordem_tem_servicos` (`ordem_ts_id`, `ordem_ts_id_servico`, `ordem_ts_id_ordem_servico`, `ordem_ts_quantidade`, `ordem_ts_valor_unitario`, `ordem_ts_valor_desconto`, `ordem_ts_valor_total`) VALUES
 (1, 1, 1, 1, '80.00', '0', '80.00'),
 (2, 2, 2, 4, '80.00', '0', '320.00'),
-(3, 3, 3, 1, '120.00', '0', '120.00');
+(3, 3, 3, 1, '120.00', '0', '120.00'),
+(6, 4, 12, 1, ' 65.00', '0 ', ' 65.00'),
+(7, 2, 13, 2, ' 80.00', '0 ', ' 160.00');
 
 -- --------------------------------------------------------
 
@@ -307,7 +309,9 @@ CREATE TABLE `ordens_servicos` (
 INSERT INTO `ordens_servicos` (`ordem_servico_id`, `ordem_servico_forma_pagamento_id`, `ordem_servico_cliente_id`, `ordem_servico_data_emissao`, `ordem_servico_data_conclusao`, `ordem_servico_equipamento`, `ordem_servico_marca_equipamento`, `ordem_servico_modelo_equipamento`, `ordem_servico_acessorios`, `ordem_servico_defeito`, `ordem_servico_valor_desconto`, `ordem_servico_valor_total`, `ordem_servico_status`, `ordem_servico_obs`, `ordem_servico_data_alteracao`) VALUES
 (1, 1, 5, '2020-02-14 20:30:35', NULL, 'Fone de ouvido', 'Awell', 'AV1801', 'Mouse e carregador', 'Não sai aúdio no lado esquerdo', 'R$ 0.00', '490.00', 0, '', '2021-02-14 11:29:45'),
 (2, 1, 6, '2020-02-14 20:48:53', NULL, 'Notebook gamer', 'Awell', 'FONE01', 'Mouse e carregador', 'Não carrega', 'R$ 0.00', '80.00', 0, '', '2021-02-14 11:29:48'),
-(3, 1, 7, '2020-02-17 23:53:26', NULL, 'Notebook Sony', 'Sony', 'FONE01', 'Mouse e carregador', 'Tela trincada', 'R$ 0.00', '120.00', 0, 'Vem buscar pela manhã', '2021-02-14 11:29:50');
+(3, 1, 7, '2020-02-17 23:53:26', NULL, 'Notebook Sony', 'Sony', 'FONE01', 'Mouse e carregador', 'Tela trincada', 'R$ 0.00', '120.00', 0, 'Vem buscar pela manhã', '2021-02-14 11:29:50'),
+(12, NULL, 7, '2021-02-22 16:54:50', NULL, 'computador', 'nvidia', 'axt107', 'teclado, mouse,', 'precisa de formataçao', 'R$ 0.00', '65.00', 0, '', NULL),
+(13, 0, 7, '2021-02-22 16:55:54', NULL, 'Tv', 'samsumg', '01', 'cabo de energia', 'nao liga', 'R$ 0.00', '160.00', 0, 'cliente autorizou o serviço', '2021-02-22 16:56:59');
 
 -- --------------------------------------------------------
 
@@ -433,7 +437,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$MpRUw86seo9NhAfU/29xxeMenrrryCc3T4mdSq0gbXJWfGnBRKFyG', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1613580432, 1, 'Admin-3lkk', 'istrator-llkk', 'ADMIN', '0');
+(1, '127.0.0.1', 'administrator', '$2y$12$8A9DlNKKiHDpX3ORISaVi.LLeAnpnmGJ/vGHLuItSsPzvU.pvQXBq', 'leogames850@gmail.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1614005683, 1, 'Nerso', 'Silva', 'ADMIN', '0');
 
 -- --------------------------------------------------------
 
@@ -661,7 +665,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT de tabela `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `marcas`
@@ -673,13 +677,13 @@ ALTER TABLE `marcas`
 -- AUTO_INCREMENT de tabela `ordem_tem_servicos`
 --
 ALTER TABLE `ordem_tem_servicos`
-  MODIFY `ordem_ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ordem_ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `ordens_servicos`
 --
 ALTER TABLE `ordens_servicos`
-  MODIFY `ordem_servico_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ordem_servico_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`

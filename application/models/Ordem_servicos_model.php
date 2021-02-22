@@ -25,6 +25,7 @@ class Ordem_servicos_model extends CI_Model {
         $this->db->select([
             'ordens_servicos.*',
             'clientes.cliente_id',
+            'clientes.cliente_celular',
             'clientes.cliente_cpf_cnpj',
             'CONCAT (clientes.cliente_nome, " ", clientes.cliente_sobrenome) as cliente_nome_completo',
             'formas_pagamentos.forma_pagamento_id',
