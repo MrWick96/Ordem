@@ -95,6 +95,7 @@
                 <a title="Gerenciar relatório de vendas" class="collapse-item" href="<?php echo base_url('relatorios/vendas'); ?>"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Vendas</a>        
                 <a title="Gerenciar relatório de ordens de serviços" class="collapse-item" href="<?php echo base_url('relatorios/os'); ?>"><i class="fas fa-shopping-basket text-gray-900"></i>&nbsp;&nbsp;Ordens de serviços</a>        
                 <a title="Gerenciar relatório de contas a receber" class="collapse-item" href="<?php echo base_url('relatorios/receber'); ?>"><i class="fas fa-hand-holding-usd"></i>&nbsp;&nbsp;Contas a receber</a>        
+                <a title="Gerenciar relatório de contas a pagar" class="collapse-item" href="<?php echo base_url('relatorios/pagar'); ?>"><i class="fas fa-piggy-bank"></i>&nbsp;&nbsp;Contas a pagar</a>        
             </div>
         </div>
     </li>
