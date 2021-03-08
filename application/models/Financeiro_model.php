@@ -84,26 +84,26 @@ class Financeiro_model extends CI_Model {
 
             date_default_timezone_set('America/Fortaleza');
 
-            $this->db->where('conta_receber_data_vencimento <', date('Y-m-d'));
+            $this->db->where('conta_pagar_data_vencimento <', date('Y-m-d'));
         }
-        return $this->db->get('contas_receber')->result();
+        return $this->db->get('contas_pagar')->result();
     }
     
-    public function get_sum_contas_pagar_relatorio($conta_receber_status = NULL, $data_vencimento = NULL) {
+    public function get_sum_contas_pagar_relatorio($conta_pagar_status = NULL, $data_vencimento = NULL) {
 
        $this->db->select([
-                'FORMAT(SUM(REPLACE(conta_receber_valor, ",", "")), 2) as conta_receber_valor_total',
+                'FORMAT(SUM(REPLACE(conta_pagar_valor, ",", "")), 2) as conta_pagar_valor_total',
             ]);
 
-        $this->db->where('conta_receber_status', $conta_receber_status);
+        $this->db->where('conta_pagar_status', $conta_pagar_status);
 
         if ($data_vencimento) {
 
             date_default_timezone_set('America/Fortaleza');
 
-            $this->db->where('conta_receber_data_vencimento <', date('Y-m-d'));
+            $this->db->where('conta_pagar_data_vencimento <', date('Y-m-d'));
         }
-        return $this->db->get('contas_receber')->row();
+        return $this->db->get('contas_pagar')->row();
     }
 
 }

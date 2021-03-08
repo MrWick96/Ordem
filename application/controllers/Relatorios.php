@@ -8,8 +8,13 @@ class Relatorios extends CI_Controller {
         parent::__construct();
 
         if (!$this->ion_auth->logged_in()) {
-            $this->session->set_flashdata('info', 'Sua sessão expirou!');
+            $this->session->set_flashdata('info', 'Sua sessão expirou! Por favor realize seu login novamente');
             redirect('login');
+        }
+
+        if (!$this->ion_auth->is_admin()) {
+            $this->session->set_flashdata('info', 'Você não tem permissão para acessar o menu Relatórios');
+            redirect('/');
         }
     }
 
@@ -419,8 +424,8 @@ class Relatorios extends CI_Controller {
                     redirect('relatorios/receber');
                 }
             }
-            
-            
+
+
             if ($contas == 'pagas') {
 
                 $conta_receber_status = 1;
@@ -512,12 +517,10 @@ class Relatorios extends CI_Controller {
 //                echo '<pre>';
 //                print_r($html);
 //                exit();
-                
-                
                     //fasle -> abre pdf no navegador
                     //true -> faz o download
-                    
-                    
+
+
                     $this->pdf->createPDF($html, $file_name, false);
                 }else {
 
@@ -525,10 +528,10 @@ class Relatorios extends CI_Controller {
                     redirect('relatorios/receber');
                 }
             }
-            
-            
+
+
             if ($contas == 'receber') {
-                
+
 
                 $conta_receber_status = 0;
 
@@ -619,12 +622,10 @@ class Relatorios extends CI_Controller {
 //                echo '<pre>';
 //                print_r($html);
 //                exit();
-                
-                
                     //fasle -> abre pdf no navegador
                     //true -> faz o download
-                    
-                    
+
+
                     $this->pdf->createPDF($html, $file_name, false);
                 }else {
 
@@ -638,6 +639,339 @@ class Relatorios extends CI_Controller {
 
         $this->load->view('layout/header', $data);
         $this->load->view('relatorios/receber');
+        $this->load->view('layout/footer');
+    }
+
+    public function pagar() {
+
+        $data = array(
+            'titulo' => 'Relatório de contas a pagar',
+        );
+
+        $contas = $this->input->post('contas');
+
+        if ($contas == 'pagas' || $contas == 'vencidas' || $contas == 'a_pagar') {
+
+            $this->load->model('financeiro_model');
+
+            if ($contas == 'vencidas') {
+
+                $conta_pagar_status = 0;
+
+                $data_vencimento = TRUE;
+
+                if ($contas = $this->financeiro_model->get_contas_pagar_relatorio($conta_pagar_status, $data_vencimento)) {
+
+
+                    //formar PDf...................
+
+
+                    $empresa = $this->core_model->get_by_id('sistema', array('sistema_id' => 1));
+
+                    $contas = $this->financeiro_model->get_contas_pagar_relatorio($conta_pagar_status, $data_vencimento);
+
+
+                    $file_name = 'Relatório de contas vencidas';
+
+
+                    //inicio do html
+                    $html = '<html>';
+
+
+
+                    $html .= '<head>';
+
+
+                    $html .= '<title>' . $empresa->sistema_nome_fantasia . ' | Relatório de contas vencidas</title>';
+
+                    $html .= '</head>';
+
+
+                    $html .= '<body style="font-size: 14px">';
+
+                    $html .= '<h4 align="center">               
+                ' . 'Nome:&nbsp;' . $empresa->sistema_razao_social . '<br/>
+                ' . 'CNPJ:&nbsp;' . $empresa->sistema_cnpj . '<br/>
+                ' . 'Endereço:&nbsp;' . $empresa->sistema_endereco . 'Nº:&nbsp;' . $empresa->sistema_numero . '<br/>
+                ' . 'Cidade:&nbsp;' . $empresa->sistema_cidade . ',&nbsp;Cep:&nbsp;' . $empresa->sistema_cep . ',&nbsp;UF:' . $empresa->sistema_estado . '<br/>
+                ' . 'Telefone:&nbsp;' . $empresa->sistema_telefone_fixo . '<br/>
+                ' . 'E-mail:&nbsp;' . $empresa->sistema_email . '<br/>
+                  </h4>';
+
+                    $html .= '<hr>';
+
+                    $html .= '<table width="100%" border: solid #ddd 1px>';
+
+                    $html .= '<tr>';
+                    $html .= '<th>Venda ID:</th>';
+                    $html .= '<th>Data vencimento:</th>';
+                    $html .= '<th>Fornecedor:</th>';
+                    $html .= '<th>Situação:</th>';
+                    $html .= '<th>Valor total:</th>';
+
+
+                    $html .= '</tr>';
+
+
+                    foreach ($contas as $conta):
+
+
+                        $html .= '<tr>';
+                        $html .= '<td>' . $conta->conta_pagar_id . '</td>';
+                        $html .= '<td>' . formata_data_banco_sem_hora($conta->conta_pagar_data_vencimento) . '</td>';
+                        $html .= '<td>' . $conta->fornecedor_nome_fantasia . '</td>';
+                        $html .= '<td>Vencida</td>';
+                        $html .= '<td>' . 'R$&nbsp;' . $conta->conta_pagar_valor . '</td>';
+                        $html .= '</tr>';
+
+                    endforeach;
+
+                    $valor_final_contas = $this->financeiro_model->get_sum_contas_pagar_relatorio($conta_pagar_status, $data_vencimento);
+
+                    $html .= '<th colspan="3">';
+
+                    $html .= '<td style="border-top: solid #ddd 1px"><strong>Valor Final:</strong></td>';
+                    $html .= '<td style="border-top: solid #ddd 1px">' . $valor_final_contas->conta_pagar_valor_total . '</td>';
+
+                    $html .= '</th>';
+
+
+                    $html .= '</table>';
+
+
+                    $html .= '</body>';
+
+
+
+
+                    $html .= '</html>';
+
+//                echo '<pre>';
+//                print_r($html);
+//                exit();
+                    //fasle -> abre pdf no navegador
+                    //true -> faz o download
+                    $this->pdf->createPDF($html, $file_name, false);
+                }else {
+
+                    $this->session->set_flashdata('info', 'Não existem contas vencidas na base de dados');
+                    redirect('relatorios/pagar');
+                }
+            }
+
+            if ($contas == 'pagas') {
+
+                $conta_pagar_status = 1;
+
+                $data_vencimento = FALSE; //Quando paga
+
+                if ($contas = $this->financeiro_model->get_contas_pagar_relatorio($conta_pagar_status, $data_vencimento)) {
+
+
+                    //formar PDf...................
+
+
+                    $empresa = $this->core_model->get_by_id('sistema', array('sistema_id' => 1));
+
+                    $contas = $this->financeiro_model->get_contas_pagar_relatorio($conta_pagar_status, $data_vencimento);
+
+
+                    $file_name = 'Relatório de contas pagas';
+
+
+                    //inicio do html
+                    $html = '<html>';
+
+
+
+                    $html .= '<head>';
+
+
+                    $html .= '<title>' . $empresa->sistema_nome_fantasia . ' | Relatório de contas pagas</title>';
+
+                    $html .= '</head>';
+
+
+                    $html .= '<body style="font-size: 14px">';
+
+                    $html .= '<h4 align="center">               
+                ' . 'Nome:&nbsp;' . $empresa->sistema_razao_social . '<br/>
+                ' . 'CNPJ:&nbsp;' . $empresa->sistema_cnpj . '<br/>
+                ' . 'Endereço:&nbsp;' . $empresa->sistema_endereco . 'Nº:&nbsp;' . $empresa->sistema_numero . '<br/>
+                ' . 'Cidade:&nbsp;' . $empresa->sistema_cidade . ',&nbsp;Cep:&nbsp;' . $empresa->sistema_cep . ',&nbsp;UF:' . $empresa->sistema_estado . '<br/>
+                ' . 'Telefone:&nbsp;' . $empresa->sistema_telefone_fixo . '<br/>
+                ' . 'E-mail:&nbsp;' . $empresa->sistema_email . '<br/>
+                  </h4>';
+
+                    $html .= '<hr>';
+
+                    $html .= '<table width="100%" border: solid #ddd 1px>';
+
+                    $html .= '<tr>';
+                    $html .= '<th>Venda ID:</th>';
+                    $html .= '<th>Data pagamento:</th>';
+                    $html .= '<th>Fornecedor:</th>';
+                    $html .= '<th>Situação:</th>';
+                    $html .= '<th>Valor total:</th>';
+
+
+                    $html .= '</tr>';
+
+
+                    foreach ($contas as $conta):
+
+
+                        $html .= '<tr>';
+                        $html .= '<td>' . $conta->conta_pagar_id . '</td>';
+                        $html .= '<td>' . formata_data_banco_com_hora($conta->conta_pagar_data_pagamento) . '</td>';
+                        $html .= '<td>' . $conta->fornecedor_nome_fantasia . '</td>';
+                        $html .= '<td>Paga</td>';
+                        $html .= '<td>' . 'R$&nbsp;' . $conta->conta_pagar_valor . '</td>';
+                        $html .= '</tr>';
+
+                    endforeach;
+
+                    $valor_final_contas = $this->financeiro_model->get_sum_contas_pagar_relatorio($conta_pagar_status, $data_vencimento);
+
+                    $html .= '<th colspan="3">';
+
+                    $html .= '<td style="border-top: solid #ddd 1px"><strong>Valor Final:</strong></td>';
+                    $html .= '<td style="border-top: solid #ddd 1px">' . $valor_final_contas->conta_pagar_valor_total . '</td>';
+
+                    $html .= '</th>';
+
+
+                    $html .= '</table>';
+
+
+                    $html .= '</body>';
+
+
+
+
+                    $html .= '</html>';
+
+//                echo '<pre>';
+//                print_r($html);
+//                exit();
+                    //fasle -> abre pdf no navegador
+                    //true -> faz o download
+                    $this->pdf->createPDF($html, $file_name, false);
+                }else {
+
+                    $this->session->set_flashdata('info', 'Não existem contas pagas na base de dados');
+                    redirect('relatorios/pagar');
+                }
+            }
+
+            if ($contas == 'a_pagar') {
+
+                $conta_pagar_status = 0;
+
+                $data_vencimento = FALSE; //Quando paga
+
+                if ($contas = $this->financeiro_model->get_contas_pagar_relatorio($conta_pagar_status, $data_vencimento)) {
+
+
+                    //formar PDf...................
+
+
+                    $empresa = $this->core_model->get_by_id('sistema', array('sistema_id' => 1));
+
+                    $contas = $this->financeiro_model->get_contas_pagar_relatorio($conta_pagar_status, $data_vencimento);
+
+
+                    $file_name = 'Relatório de contas a pagar';
+
+
+                    //inicio do html
+                    $html = '<html>';
+
+
+
+                    $html .= '<head>';
+
+
+                    $html .= '<title>' . $empresa->sistema_nome_fantasia . ' | Relatório de contas a pagas</title>';
+
+                    $html .= '</head>';
+
+
+                    $html .= '<body style="font-size: 14px">';
+
+                    $html .= '<h4 align="center">               
+                ' . 'Nome:&nbsp;' . $empresa->sistema_razao_social . '<br/>
+                ' . 'CNPJ:&nbsp;' . $empresa->sistema_cnpj . '<br/>
+                ' . 'Endereço:&nbsp;' . $empresa->sistema_endereco . 'Nº:&nbsp;' . $empresa->sistema_numero . '<br/>
+                ' . 'Cidade:&nbsp;' . $empresa->sistema_cidade . ',&nbsp;Cep:&nbsp;' . $empresa->sistema_cep . ',&nbsp;UF:' . $empresa->sistema_estado . '<br/>
+                ' . 'Telefone:&nbsp;' . $empresa->sistema_telefone_fixo . '<br/>
+                ' . 'E-mail:&nbsp;' . $empresa->sistema_email . '<br/>
+                  </h4>';
+
+                    $html .= '<hr>';
+
+                    $html .= '<table width="100%" border: solid #ddd 1px>';
+
+                    $html .= '<tr>';
+                    $html .= '<th>Venda ID:</th>';
+                    $html .= '<th>Data vencimento:</th>';
+                    $html .= '<th>Fornecedor:</th>';
+                    $html .= '<th>Situação:</th>';
+                    $html .= '<th>Valor total:</th>';
+
+
+                    $html .= '</tr>';
+
+
+                    foreach ($contas as $conta):
+
+
+                        $html .= '<tr>';
+                        $html .= '<td>' . $conta->conta_pagar_id . '</td>';
+                        $html .= '<td>' . formata_data_banco_sem_hora($conta->conta_pagar_data_vencimento) . '</td>';
+                        $html .= '<td>' . $conta->fornecedor_nome_fantasia . '</td>';
+                        $html .= '<td>A pagar</td>';
+                        $html .= '<td>' . 'R$&nbsp;' . $conta->conta_pagar_valor . '</td>';
+                        $html .= '</tr>';
+
+                    endforeach;
+
+                    $valor_final_contas = $this->financeiro_model->get_sum_contas_pagar_relatorio($conta_pagar_status, $data_vencimento);
+
+                    $html .= '<th colspan="3">';
+
+                    $html .= '<td style="border-top: solid #ddd 1px"><strong>Valor Final:</strong></td>';
+                    $html .= '<td style="border-top: solid #ddd 1px">' . $valor_final_contas->conta_pagar_valor_total . '</td>';
+
+                    $html .= '</th>';
+
+
+                    $html .= '</table>';
+
+
+                    $html .= '</body>';
+
+
+
+
+                    $html .= '</html>';
+
+//                echo '<pre>';
+//                print_r($html);
+//                exit();
+                    //fasle -> abre pdf no navegador
+                    //true -> faz o download
+                    $this->pdf->createPDF($html, $file_name, false);
+                }else {
+
+                    $this->session->set_flashdata('info', 'Não existem contas a pagar na base de dados');
+                    redirect('relatorios/pagar');
+                }
+            }
+        }
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('relatorios/pagar');
         $this->load->view('layout/footer');
     }
 

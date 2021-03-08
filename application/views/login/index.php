@@ -27,8 +27,8 @@
 
                                 </div>
                             <?php endif; ?>
-                            
-                                                   <?php if ($message = $this->session->flashdata('info')): ?>
+
+                            <?php if ($message = $this->session->flashdata('info')): ?>
                                 <div class="row">
 
                                     <div class="col-md-12">
@@ -50,14 +50,11 @@
                                 </div>
                                 <form class="user" name="form_auth" method="POST" action="<?php echo base_url('login/auth'); ?>">
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-control form-control-user" placeholder="Entre com seu e-mail...">
+                                        <input type="email" name="email" class="form-control" placeholder="Entre com seu e-mail...">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" class="form-control form-control-user"  placeholder="Entre com sua senha">
+                                        <input type="password" name="password" class="form-control"  placeholder="Entre com sua senha">
                                     </div>
-
-
-
                                     <button type="submit" class="btn btn-primary btn-user btn-block">Entrar</button>
                                 </form>
                             </div>

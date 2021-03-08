@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Fev-2021 às 17:53
+-- Tempo de geração: 08-Mar-2021 às 20:58
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 7.4.14
 
@@ -98,17 +98,6 @@ CREATE TABLE `contas_pagar` (
   `conta_pagar_data_alteracao` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='		';
 
---
--- Extraindo dados da tabela `contas_pagar`
---
-
-INSERT INTO `contas_pagar` (`conta_pagar_id`, `conta_pagar_fornecedor_id`, `conta_pagar_data_vencimento`, `conta_pagar_data_pagamento`, `conta_pagar_valor`, `conta_pagar_status`, `conta_pagar_obs`, `conta_pagar_data_alteracao`) VALUES
-(3, 3, '2021-07-08', '2021-02-05 08:41:23', '200.00', 1, '', '2021-02-05 23:41:23'),
-(5, 3, '2021-05-08', NULL, '500.00', 0, '', '2021-02-05 23:46:06'),
-(6, 3, '2021-02-06', NULL, '500.00', 0, '', '2021-02-07 00:37:57'),
-(7, 3, '2021-02-10', '2021-02-10 09:32:54', '200.00', 1, 'pagar hoje', '2021-02-11 00:32:54'),
-(8, 3, '2021-02-16', NULL, '1,000.00', 0, 'pagar mais tarde', '2021-02-16 15:55:03');
-
 -- --------------------------------------------------------
 
 --
@@ -131,12 +120,7 @@ CREATE TABLE `contas_receber` (
 --
 
 INSERT INTO `contas_receber` (`conta_receber_id`, `conta_receber_cliente_id`, `conta_receber_data_vencimento`, `conta_receber_data_pagamento`, `conta_receber_valor`, `conta_receber_status`, `conta_receber_obs`, `conta_receber_data_alteracao`) VALUES
-(1, 5, '2020-02-28', '2021-02-06 08:22:15', '150,226.22', 1, '', '2021-02-06 11:22:15'),
-(2, 6, '2020-02-21', '2020-02-28 18:33:19', '350.00', 1, NULL, '2021-02-06 04:45:28'),
-(5, 5, '2021-02-06', '2021-02-16 12:55:49', '500.00', 1, '', '2021-02-16 15:55:49'),
-(6, 5, '2021-02-24', '2021-02-26 09:44:19', '500.00', 1, 'ja venceu', '2021-02-27 00:44:19'),
-(7, 6, '2021-03-30', '2021-02-26 10:08:57', '10.00', 1, '', '2021-02-27 01:08:57'),
-(8, 7, '2021-03-15', '2021-02-26 10:09:01', '15,000.00', 1, '', '2021-02-27 01:09:01');
+(14, 5, '2021-01-05', NULL, '100.00', 0, 'vai vim pagar', '2021-03-06 23:01:19');
 
 -- --------------------------------------------------------
 
@@ -270,17 +254,6 @@ CREATE TABLE `ordem_tem_servicos` (
   `ordem_ts_valor_total` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela de relacionamento entre as tabelas servicos e ordem_servico';
 
---
--- Extraindo dados da tabela `ordem_tem_servicos`
---
-
-INSERT INTO `ordem_tem_servicos` (`ordem_ts_id`, `ordem_ts_id_servico`, `ordem_ts_id_ordem_servico`, `ordem_ts_quantidade`, `ordem_ts_valor_unitario`, `ordem_ts_valor_desconto`, `ordem_ts_valor_total`) VALUES
-(11, 2, 2, 4, ' 80.00', '0 ', ' 320.00'),
-(12, 3, 3, 1, ' 120.00', '0 ', ' 120.00'),
-(17, 4, 12, 1, ' 65.00', '0 ', ' 65.00'),
-(18, 2, 12, 10, ' 80.00', '0 ', ' 800.00'),
-(19, 2, 13, 2, ' 80.00', '0 ', ' 160.00');
-
 -- --------------------------------------------------------
 
 --
@@ -304,16 +277,6 @@ CREATE TABLE `ordens_servicos` (
   `ordem_servico_obs` tinytext DEFAULT NULL,
   `ordem_servico_data_alteracao` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `ordens_servicos`
---
-
-INSERT INTO `ordens_servicos` (`ordem_servico_id`, `ordem_servico_forma_pagamento_id`, `ordem_servico_cliente_id`, `ordem_servico_data_emissao`, `ordem_servico_data_conclusao`, `ordem_servico_equipamento`, `ordem_servico_marca_equipamento`, `ordem_servico_modelo_equipamento`, `ordem_servico_acessorios`, `ordem_servico_defeito`, `ordem_servico_valor_desconto`, `ordem_servico_valor_total`, `ordem_servico_status`, `ordem_servico_obs`, `ordem_servico_data_alteracao`) VALUES
-(2, 2, 6, '2020-02-14 20:48:53', NULL, 'Notebook gamer', 'Awell', 'FONE01', 'Mouse e carregador', 'Não carrega', 'R$ 0.00', '320.00', 1, '', '2021-02-23 01:21:03'),
-(3, 6, 7, '2020-02-17 23:53:26', NULL, 'Notebook Sony', 'Sony', 'FONE01', 'Mouse e carregador', 'Tela trincada', 'R$ 0.00', '120.00', 1, 'Vem buscar pela manhã', '2021-02-23 01:50:06'),
-(12, 2, 7, '2021-02-22 16:54:50', NULL, 'computador', 'nvidia', 'axt107', 'teclado, mouse,', 'precisa de formataçao', 'R$ 0.00', '865.00', 1, '', '2021-02-23 03:16:58'),
-(13, 2, 7, '2021-02-22 16:55:54', NULL, 'Tv', 'samsumg', '01', 'cabo de energia', 'nao liga', 'R$ 0.00', '160.00', 1, 'cliente autorizou o serviço', '2021-02-25 21:34:29');
 
 -- --------------------------------------------------------
 
@@ -346,9 +309,9 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`produto_id`, `produto_codigo`, `produto_data_cadastro`, `produto_categoria_id`, `produto_marca_id`, `produto_fornecedor_id`, `produto_descricao`, `produto_unidade`, `produto_codigo_barras`, `produto_ncm`, `produto_preco_custo`, `produto_preco_venda`, `produto_estoque_minimo`, `produto_qtde_estoque`, `produto_ativo`, `produto_obs`, `produto_data_alteracao`) VALUES
-(7, '15628934', NULL, 1, 1, 3, 'Celular a4', 'UN', NULL, NULL, '50,00', '100,00', '1', '8', 1, 'Chegou em novo', '2021-02-25 20:42:39'),
-(8, '95871243', NULL, 1, 1, 3, 'teste1', 'PCT', NULL, NULL, '2.560,00', '2.570,00', '1', '0', 1, '', '2021-02-25 20:01:36'),
-(10, '70413859', NULL, 1, 1, 3, 'pc gamer', 'Un', NULL, NULL, '2.000,00', '4.000,00', '1', '3', 1, '', '2021-02-27 16:48:49');
+(7, '15628934', NULL, 1, 1, 3, 'Celular a4', 'UN', NULL, NULL, '50,00', '100,00', '1', '5', 1, 'Chegou em novo', '2021-03-05 06:30:49'),
+(8, '95871243', NULL, 1, 1, 3, 'teste1', 'PCT', NULL, NULL, '2.560,00', '2.570,00', '1', '0', 1, '', '2021-03-06 00:07:09'),
+(10, '70413859', NULL, 1, 1, 3, 'pc gamer', 'Un', NULL, NULL, '2.000,00', '4.000,00', '1', '1', 1, '', '2021-03-05 06:16:50');
 
 -- --------------------------------------------------------
 
@@ -440,7 +403,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$8A9DlNKKiHDpX3ORISaVi.LLeAnpnmGJ/vGHLuItSsPzvU.pvQXBq', 'leogames850@gmail.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1614441721, 1, 'Nerso', 'Silva', 'ADMIN', '0');
+(1, '127.0.0.1', 'administrator', '$2y$12$8A9DlNKKiHDpX3ORISaVi.LLeAnpnmGJ/vGHLuItSsPzvU.pvQXBq', 'leogames850@gmail.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1615222866, 1, 'leonardo', 'Silva', 'ADMIN', '0'),
+(8, '::1', 'teste', '$2y$10$qCf0vtiPLRTVNyzPl7QA0e0Ws0sxSGdjVyCSqZyrLXGEZwkMBaTyu', 'teste@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1614721335, 1615003065, 1, 'Vendedor', 'teste123', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -459,7 +423,42 @@ CREATE TABLE `users_groups` (
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
-(7, 1, 1);
+(7, 1, 1),
+(19, 8, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vendas`
+--
+
+CREATE TABLE `vendas` (
+  `venda_id` int(11) NOT NULL,
+  `venda_cliente_id` int(11) DEFAULT NULL,
+  `venda_forma_pagamento_id` int(11) DEFAULT NULL,
+  `venda_vendedor_id` int(11) DEFAULT NULL,
+  `venda_tipo` tinyint(1) DEFAULT NULL,
+  `venda_data_emissao` timestamp NULL DEFAULT current_timestamp(),
+  `venda_valor_desconto` varchar(25) DEFAULT NULL,
+  `venda_valor_total` varchar(25) DEFAULT NULL,
+  `venda_data_alteracao` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `venda_produtos`
+--
+
+CREATE TABLE `venda_produtos` (
+  `id_venda_produtos` int(11) NOT NULL,
+  `venda_produto_id_venda` int(11) DEFAULT NULL,
+  `venda_produto_id_produto` int(11) DEFAULT NULL,
+  `venda_produto_quantidade` varchar(15) DEFAULT NULL,
+  `venda_produto_valor_unitario` varchar(20) DEFAULT NULL,
+  `venda_produto_desconto` varchar(10) DEFAULT NULL,
+  `venda_produto_valor_total` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -613,6 +612,23 @@ ALTER TABLE `users_groups`
   ADD KEY `fk_users_groups_groups1_idx` (`group_id`);
 
 --
+-- Índices para tabela `vendas`
+--
+ALTER TABLE `vendas`
+  ADD PRIMARY KEY (`venda_id`),
+  ADD KEY `fk_venda_cliente_id` (`venda_cliente_id`),
+  ADD KEY `fk_venda_forma_pagto_id` (`venda_forma_pagamento_id`),
+  ADD KEY `fk_venda_vendedor_id` (`venda_vendedor_id`);
+
+--
+-- Índices para tabela `venda_produtos`
+--
+ALTER TABLE `venda_produtos`
+  ADD PRIMARY KEY (`id_venda_produtos`),
+  ADD KEY `fk_venda_produtos_id_produto` (`venda_produto_id_produto`),
+  ADD KEY `fk_venda_produtos_id_venda` (`venda_produto_id_venda`);
+
+--
 -- Índices para tabela `vendedores`
 --
 ALTER TABLE `vendedores`
@@ -638,13 +654,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de tabela `contas_pagar`
 --
 ALTER TABLE `contas_pagar`
-  MODIFY `conta_pagar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `conta_pagar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `contas_receber`
 --
 ALTER TABLE `contas_receber`
-  MODIFY `conta_receber_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `conta_receber_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `formas_pagamentos`
@@ -668,7 +684,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT de tabela `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de tabela `marcas`
@@ -680,13 +696,13 @@ ALTER TABLE `marcas`
 -- AUTO_INCREMENT de tabela `ordem_tem_servicos`
 --
 ALTER TABLE `ordem_tem_servicos`
-  MODIFY `ordem_ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ordem_ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `ordens_servicos`
 --
 ALTER TABLE `ordens_servicos`
-  MODIFY `ordem_servico_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ordem_servico_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
@@ -710,13 +726,25 @@ ALTER TABLE `sistema`
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT de tabela `vendas`
+--
+ALTER TABLE `vendas`
+  MODIFY `venda_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT de tabela `venda_produtos`
+--
+ALTER TABLE `venda_produtos`
+  MODIFY `id_venda_produtos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de tabela `vendedores`
@@ -747,6 +775,21 @@ ALTER TABLE `ordem_tem_servicos`
 ALTER TABLE `users_groups`
   ADD CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `vendas`
+--
+ALTER TABLE `vendas`
+  ADD CONSTRAINT `fk_venda_cliente_id` FOREIGN KEY (`venda_cliente_id`) REFERENCES `clientes` (`cliente_id`),
+  ADD CONSTRAINT `fk_venda_forma_pagto_id` FOREIGN KEY (`venda_forma_pagamento_id`) REFERENCES `formas_pagamentos` (`forma_pagamento_id`),
+  ADD CONSTRAINT `fk_venda_vendedor_id` FOREIGN KEY (`venda_vendedor_id`) REFERENCES `vendedores` (`vendedor_id`);
+
+--
+-- Limitadores para a tabela `venda_produtos`
+--
+ALTER TABLE `venda_produtos`
+  ADD CONSTRAINT `fk_venda_produtos_id_produto` FOREIGN KEY (`venda_produto_id_produto`) REFERENCES `produtos` (`produto_id`),
+  ADD CONSTRAINT `fk_venda_produtos_id_venda` FOREIGN KEY (`venda_produto_id_venda`) REFERENCES `vendas` (`venda_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

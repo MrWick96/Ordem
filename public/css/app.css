@@ -49,16 +49,16 @@ form.user .form-control-user {
 }
 
 .alert-success{
-    background-color: #93c54b; 
+    background-color: #00A828; 
     color: white;
 }
 
 .text-success{
-    color: #93c54b !important; 
+    color: #00A828 !important; 
 }
 
 .border-left-success{
-    color: #93c54b !important;
+    color: #00A828 !important;
 }
 
 .custom-select{

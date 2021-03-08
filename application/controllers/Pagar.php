@@ -12,6 +12,11 @@ class Pagar extends CI_Controller {
             redirect('login');
         }
 
+        if (!$this->ion_auth->is_admin()) {
+            $this->session->set_flashdata('info', 'Você não tem permissão para acessar o menu de contas a Pagar');
+            redirect('/');
+        }
+
         $this->load->model('financeiro_model');
     }
 
@@ -150,22 +155,21 @@ class Pagar extends CI_Controller {
             $this->load->view('layout/footer');
         }
     }
-    
+
     public function del($conta_pagar_id = NULL) {
-        
-        if(!$conta_pagar_id || !$this->core_model->get_by_id('contas_pagar', array('conta_pagar_id' =>$conta_pagar_id))){
+
+        if (!$conta_pagar_id || !$this->core_model->get_by_id('contas_pagar', array('conta_pagar_id' => $conta_pagar_id))) {
             $this->session->set_flashdata('error', 'Conta não encontrada');
             redirect('pagar');
         }
-        
-        if($this->core_model->get_by_id('contas_pagar', array('conta_pagar_id' => $conta_pagar_id, 'conta_pagar_status' => 0))){
+
+        if ($this->core_model->get_by_id('contas_pagar', array('conta_pagar_id' => $conta_pagar_id, 'conta_pagar_status' => 0))) {
             $this->session->set_flashdata('info', 'Está conta não pode ser apagada, pois ainda está em aberta');
             redirect('pagar');
         }
-        
+
         $this->core_model->delete('contas_pagar', array('conta_pagar_id' => $conta_pagar_id));
         redirect('pagar');
-        
     }
 
 }
