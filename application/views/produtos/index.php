@@ -62,11 +62,11 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a title="Cadastrar novo produto" href="<?php echo base_url('produtos/add') ?>" class="btn btn-success btn-sm float-right"><i class="fas fa-cash-register"></i>&nbsp;&nbsp;Novo</a>   
+                <a title="Cadastrar novo produto" href="<?php echo base_url('produtos/add') ?>" class="btn btn-success btn-sm float-right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Novo</a>   
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered produtos" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -93,7 +93,7 @@
                                     <td class="text-center pr-4"><?php echo ($produto->produto_ativo == 1 ? '<span class="badge bg-info text-white btn-sm">Sim</span>' : '<span class="badge bg-warning text-white btn-sm">Não</span>') ?> </td>
                                     <td class="text-right">
                                         <a title="Editar" href="<?php echo base_url('produtos/edit/' . $produto->produto_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-user-edit"></i></a>
-                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#produto-<?php echo $produto->produto_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-user-times"></i></a>
+                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#produto-<?php echo $produto->produto_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
 

@@ -124,11 +124,11 @@ class Core_model extends CI_Model {
             $this->db->where('produto_ativo', 1);
             $this->db->where('produto_qtde_estoque >', 0);
             return $this->db->get('produtos')->result();
-        }else{
+        } else {
             return FALSE;
         }
     }
-    
+
     public function auto_complete_servicos($busca = NULL) {
 
         if ($busca) {
@@ -136,7 +136,7 @@ class Core_model extends CI_Model {
             $this->db->like('servico_descricao', $busca, 'BOTH');
             $this->db->where('servico_ativo', 1);
             return $this->db->get('servicos')->result();
-        }else{
+        } else {
             return FALSE;
         }
     }

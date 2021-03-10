@@ -118,7 +118,7 @@
 
                                     <td class="text-right">
                                         <a title="Editar" href="<?php echo base_url('receber/edit/' . $conta->conta_receber_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-user-edit"></i></a>
-                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#conta-<?php echo $conta->conta_receber_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-user-times"></i></a>
+                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#conta-<?php echo $conta->conta_receber_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
 

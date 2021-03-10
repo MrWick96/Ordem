@@ -25,6 +25,12 @@ class Produtos extends CI_Controller {
             'scripts' => array(
                 'vendor/datatables/jquery.dataTables.min.js',
                 'vendor/datatables/dataTables.bootstrap4.min.js',
+                
+                
+                'vendor/datatables/export/dataTables.buttons.min.js',
+                'vendor/datatables/export/pdfmake.min.js',
+                'vendor/datatables/export/vfs_fonts.js',
+                'vendor/datatables/export/buttons.html5.min.js',      
                 'vendor/datatables/app.js'
             ),
             'produtos' => $this->produtos_model->get_all(),

@@ -188,7 +188,7 @@
                     </div>
                     <div class="card-body border-bottom-primary">
                         <div class="text-center">
-                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 13.9rem;" src="<?php echo base_url('public/img/servicos_vendidos.svg'); ?>" alt="">
+                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 16.3rem;" src="<?php echo base_url('public/img/servicos_vendidos_2.svg'); ?>" alt="">
                         </div>
 
                         <div class="table-responsive">

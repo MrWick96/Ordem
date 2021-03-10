@@ -99,15 +99,15 @@
                         
                         <?php if($contas_receber_vencem_hoje): ?>
 
-                        <a title="Gerenciar receber vencem hoje" class="dropdown-item d-flex align-items-center" href="<?php echo base_url('pagar'); ?>">
+                        <a title="Gerenciar receber vencem hoje" class="dropdown-item d-flex align-items-center" href="<?php echo base_url('receber'); ?>">
                             <div class="mr-3">
-                                <div class="icon-circle bg-warning">
+                                <div class="icon-circle bg-success">
                                     <i class="fas fa-hand-holding-usd fa-lg text-white"></i>
                                 </div>
                             </div>
                             <div>
                                 <div class="small text-gray-500"><?php echo formata_data_banco_sem_hora(date('Y-m-d')); ?></div>
-                                <span class="font-weight-bold">Existem contas receber que vencem hoje!</span>
+                                <span class="font-weight-bold">Existem contas a receber que vencem hoje!</span>
                             </div>
                         </a>
 
