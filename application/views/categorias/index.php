@@ -81,7 +81,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a title="Cadastrar nova categoria" href="<?php echo base_url('categorias/add') ?>" class="btn btn-success btn-sm float-right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Novo</a>   
+                <a title="Cadastrar nova categoria" href="<?php echo base_url('categorias/add') ?>" class="btn btn-success col-md-1 float-right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Novo</a>   
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -115,10 +115,10 @@
                                                 <span aria-hidden="true">×</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                                        <div class="modal-body">Para excluir o registro clique em "Sim"</div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Não</button>
-                                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('categorias/del/'. $categoria->categoria_id); ?>">Sim</a>
+                                            <button class="btn btn-dark" type="button" data-dismiss="modal">Não</button>
+                                            <a class="btn btn-danger" href="<?php echo base_url('categorias/del/'. $categoria->categoria_id); ?>">Sim</a>
                                         </div>
                                     </div>
                                 </div>

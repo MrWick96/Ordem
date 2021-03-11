@@ -25,7 +25,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a title="Cadastrar novo cliente" href="<?php echo base_url('clientes/'); ?>" class="btn btn-success btn-sm float-right"><i class="fas fa-chevron-circle-left"></i>&nbsp;Voltar</a>   
+                <a title="Cadastrar novo cliente" href="<?php echo base_url('clientes/'); ?>" class="btn btn-success col-md-1 float-right"><i class="fas fa-chevron-circle-left"></i>&nbsp;Voltar</a>   
             </div>
             <div class="card-body">
 
@@ -209,7 +209,7 @@
                     </fieldset>
 
 
-                    <button type="submit" class="btn btn-primary btn-sm mt-3 col-md-1">Salvar</button>
+                    <button type="submit" class="btn btn-primary mt-3 col-md-1">Salvar</button>
                 </form>
 
             </div>

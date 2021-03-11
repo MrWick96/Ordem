@@ -25,7 +25,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a title="Voltar" href="<?php echo base_url($this->router->fetch_class()); ?>" class="btn btn-success btn-sm float-right"><i class="fas fa-chevron-circle-left"></i>&nbsp;Voltar</a>   
+                <a title="Voltar" href="<?php echo base_url($this->router->fetch_class()); ?>" class="btn btn-success col-md-1 float-right"><i class="fas fa-chevron-circle-left"></i>&nbsp;Voltar</a>   
             </div>
             <div class="card-body">
 
@@ -189,9 +189,16 @@
 
                         </div>
 
-                    </fieldset>
 
-                    <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+                    </fieldset>
+                        
+                        <div class="mb-3 row">
+                            
+                        </div>
+
+                    <button type="submit" class="btn btn-primary col-md-1">Salvar</button>
+
+
                 </form>
 
             </div>

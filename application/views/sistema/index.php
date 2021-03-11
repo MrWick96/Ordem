@@ -170,7 +170,7 @@
                         </div>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+                    <button type="submit" class="btn btn-primary col-md-1">Salvar</button>
                   </form>
                 
             </div>

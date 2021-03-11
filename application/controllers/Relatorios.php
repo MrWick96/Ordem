@@ -79,7 +79,7 @@ class Relatorios extends CI_Controller {
 
 
                 if ($data_inicial && $data_final) {
-                    $html .= '<p align="center" style="font-size: 16px">Relatório de vendas relazidas entre as seguintes datas:</p>';
+                    $html .= '<p align="center" style="font-size: 16px">Relatório de vendas realizadas entre as seguintes datas:</p>';
 
                     $html .= '<p align="center" style="font-size: 16px">' . formata_data_banco_sem_hora($data_inicial) . ' - ' . formata_data_banco_sem_hora($data_final) . '</p>';
                 } else {
@@ -227,7 +227,7 @@ class Relatorios extends CI_Controller {
 
 
                 if ($data_inicial && $data_final) {
-                    $html .= '<p align="center" style="font-size: 16px">Relatório de ordens de serviços relazidas entre as seguintes datas:</p>';
+                    $html .= '<p align="center" style="font-size: 16px">Relatório de ordens de serviços realizadas entre as seguintes datas:</p>';
 
                     $html .= '<p align="center" style="font-size: 16px">' . formata_data_banco_sem_hora($data_inicial) . ' - ' . formata_data_banco_sem_hora($data_final) . '</p>';
                 } else {

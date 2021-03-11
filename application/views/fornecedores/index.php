@@ -62,7 +62,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a title="Cadastrar novo fornecedor" href="<?php echo base_url('fornecedores/add') ?>" class="btn btn-success btn-sm float-right"><i class="fas fa-truck"></i>&nbsp;&nbsp;Novo</a>   
+                <a title="Cadastrar novo fornecedor" href="<?php echo base_url('fornecedores/add') ?>" class="btn btn-success col-md-1 float-right"><i class="fas fa-truck"></i>&nbsp;&nbsp;Novo</a>   
             </div>
             <div class="card-body">
                 <div class="table-responsive">

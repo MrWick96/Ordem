@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Mar-2021 às 20:58
+-- Tempo de geração: 11-Mar-2021 às 19:57
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 7.4.14
 
@@ -39,8 +39,7 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`categoria_id`, `categoria_nome`, `categoria_ativa`, `categoria_data_alteracao`) VALUES
-(1, 'Games 1-2', 1, '2021-01-26 19:49:39'),
-(3, 'Joias', 1, '2021-01-27 05:04:39');
+(4, 'celular', 1, '2021-03-09 17:37:52');
 
 -- --------------------------------------------------------
 
@@ -77,9 +76,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`cliente_id`, `cliente_data_cadastro`, `cliente_tipo`, `cliente_nome`, `cliente_sobrenome`, `cliente_data_nascimento`, `cliente_cpf_cnpj`, `cliente_rg_ie`, `cliente_email`, `cliente_telefone`, `cliente_celular`, `cliente_cep`, `cliente_endereco`, `cliente_numero_endereco`, `cliente_bairro`, `cliente_complemento`, `cliente_cidade`, `cliente_estado`, `cliente_ativo`, `cliente_obs`, `cliente_data_alteracao`) VALUES
-(5, '2021-02-02 07:14:28', 1, 'luquinhas', 'perneta', '1995-02-23', '082.378.059-76', '798.16982-36', 'leogames850@gmail.com', '(43) 3333-3333', '(43) 3333-3333', '86280-000', 'rua do nerso', '59', 'sussumo assanuma', 'casa', 'urai', 'PR', 1, 'fvvfvfd', '2021-02-26 04:11:57'),
-(6, '2021-02-06 04:18:48', 1, 'jose', 'joao', '1995-07-08', '276.638.140-61', '89', 'jose@gmail.com', '(43) 55555-5555', '(43) 55555-5555', '50000-000', 'rua ali na esquina', '60', 'itajai', 'casa', 'panamena', 'PR', 1, '', '2021-02-06 04:45:14'),
-(7, '2021-02-06 04:19:48', 1, 'Josifino', 'josin', '1991-08-09', '841.925.610-26', '55555555555555555555', 'jose1@gmail.com', '(55) 66666-6666', '(55) 66666-6666', '86280-000', 'rua do nerso', '80', 'perto daqui', 'casa', 'urai', 'PR', 1, '', '2021-02-06 04:45:16');
+(5, '2021-02-02 07:14:28', 1, 'luquinhas', 'perneta', '1995-02-23', '082.378.059-76', '798.16982-36', 'leogames850@gmail.com', '(43) 3333-3333', '(43) 3333-3333', '86280-000', 'rua do nerso', '59', 'sussumo assanuma', 'casa', 'urai', 'PR', 1, 'fvvfvfd', '2021-02-26 04:11:57');
 
 -- --------------------------------------------------------
 
@@ -97,6 +94,14 @@ CREATE TABLE `contas_pagar` (
   `conta_pagar_obs` tinytext DEFAULT NULL,
   `conta_pagar_data_alteracao` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='		';
+
+--
+-- Extraindo dados da tabela `contas_pagar`
+--
+
+INSERT INTO `contas_pagar` (`conta_pagar_id`, `conta_pagar_fornecedor_id`, `conta_pagar_data_vencimento`, `conta_pagar_data_pagamento`, `conta_pagar_valor`, `conta_pagar_status`, `conta_pagar_obs`, `conta_pagar_data_alteracao`) VALUES
+(13, 4, '2021-03-11', NULL, '500.00', 0, '', '2021-03-11 04:53:01'),
+(14, 4, '2021-03-10', NULL, '1,000.00', 0, '', '2021-03-11 18:51:31');
 
 -- --------------------------------------------------------
 
@@ -120,7 +125,7 @@ CREATE TABLE `contas_receber` (
 --
 
 INSERT INTO `contas_receber` (`conta_receber_id`, `conta_receber_cliente_id`, `conta_receber_data_vencimento`, `conta_receber_data_pagamento`, `conta_receber_valor`, `conta_receber_status`, `conta_receber_obs`, `conta_receber_data_alteracao`) VALUES
-(14, 5, '2021-01-05', NULL, '100.00', 0, 'vai vim pagar', '2021-03-06 23:01:19');
+(20, 5, '2021-03-10', NULL, '250.00', 0, '', '2021-03-11 18:51:15');
 
 -- --------------------------------------------------------
 
@@ -141,11 +146,11 @@ CREATE TABLE `formas_pagamentos` (
 --
 
 INSERT INTO `formas_pagamentos` (`forma_pagamento_id`, `forma_pagamento_nome`, `forma_pagamento_aceita_parc`, `forma_pagamento_ativa`, `forma_pagamento_data_alteracao`) VALUES
-(1, 'Cartão de crédito', 0, 1, '2021-02-23 01:52:41'),
-(2, 'Dinheiro', 0, 1, '2020-01-29 21:43:54'),
+(1, 'Cartão de crédito', 1, 1, '2021-03-10 05:03:37'),
+(2, 'Dinheiro', 1, 1, '2021-03-08 20:50:31'),
 (3, 'Boleto bancário', 1, 1, '2021-02-13 14:12:06'),
 (4, 'Conta Bancaria', 1, 1, '2021-02-11 00:31:27'),
-(6, 'Pix', 0, 1, '2021-02-16 22:32:11');
+(6, 'Pix', 1, 1, '2021-03-08 20:50:28');
 
 -- --------------------------------------------------------
 
@@ -181,7 +186,7 @@ CREATE TABLE `fornecedores` (
 --
 
 INSERT INTO `fornecedores` (`fornecedor_id`, `fornecedor_data_cadastro`, `fornecedor_razao`, `fornecedor_nome_fantasia`, `fornecedor_cnpj`, `fornecedor_ie`, `fornecedor_telefone`, `fornecedor_celular`, `fornecedor_email`, `fornecedor_contato`, `fornecedor_cep`, `fornecedor_endereco`, `fornecedor_numero_endereco`, `fornecedor_bairro`, `fornecedor_complemento`, `fornecedor_cidade`, `fornecedor_estado`, `fornecedor_ativo`, `fornecedor_obs`, `fornecedor_data_alteracao`) VALUES
-(3, '2021-01-26 19:48:15', 'Leonardo tecnologiass', 'Nerso Silva', '18.372.524/0001-79', '727.43663-40', '(43) 99999-9999', '(43) 99999-9999', 'leogames850@gmail.com', NULL, '86280-000', 'rua do nerso', '24', 'centro', 'casa', 'urai', 'PR', 1, '', '2021-02-23 01:15:08');
+(4, '2021-03-09 17:37:01', 'Leonardo tecnologiass', 'Nerso Silva', '18.372.524/0001-79', '727.43663-40', '(33) 33333-3333', '(43) 33333-3333', 'leogames850@gmail.com', NULL, '86280-000', 'rua do nerso', '59', 'sdadasdsa', 'casa', 'urai', 'PR', 1, '', '2021-03-09 17:37:01');
 
 -- --------------------------------------------------------
 
@@ -234,9 +239,7 @@ CREATE TABLE `marcas` (
 --
 
 INSERT INTO `marcas` (`marca_id`, `marca_nome`, `marca_ativa`, `marca_data_alteracao`) VALUES
-(1, 'Nvidia12', 1, '2021-01-28 17:11:55'),
-(4, 'Samsumg', 1, '2021-01-28 17:42:19'),
-(5, 'Pc', 1, '2021-01-28 17:42:16');
+(6, 'xiaomi', 1, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -253,6 +256,13 @@ CREATE TABLE `ordem_tem_servicos` (
   `ordem_ts_valor_desconto` varchar(45) DEFAULT NULL,
   `ordem_ts_valor_total` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabela de relacionamento entre as tabelas servicos e ordem_servico';
+
+--
+-- Extraindo dados da tabela `ordem_tem_servicos`
+--
+
+INSERT INTO `ordem_tem_servicos` (`ordem_ts_id`, `ordem_ts_id_servico`, `ordem_ts_id_ordem_servico`, `ordem_ts_quantidade`, `ordem_ts_valor_unitario`, `ordem_ts_valor_desconto`, `ordem_ts_valor_total`) VALUES
+(27, 7, 18, 1, ' 60.00', '0 ', ' 60.00');
 
 -- --------------------------------------------------------
 
@@ -277,6 +287,13 @@ CREATE TABLE `ordens_servicos` (
   `ordem_servico_obs` tinytext DEFAULT NULL,
   `ordem_servico_data_alteracao` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `ordens_servicos`
+--
+
+INSERT INTO `ordens_servicos` (`ordem_servico_id`, `ordem_servico_forma_pagamento_id`, `ordem_servico_cliente_id`, `ordem_servico_data_emissao`, `ordem_servico_data_conclusao`, `ordem_servico_equipamento`, `ordem_servico_marca_equipamento`, `ordem_servico_modelo_equipamento`, `ordem_servico_acessorios`, `ordem_servico_defeito`, `ordem_servico_valor_desconto`, `ordem_servico_valor_total`, `ordem_servico_status`, `ordem_servico_obs`, `ordem_servico_data_alteracao`) VALUES
+(18, 1, 5, '2021-03-09 17:32:33', NULL, 'computador', 'samsumg', 'axt107', 'cabo', 'dadadsadas', 'R$ 0.00', '60.00', 1, '', '2021-03-09 17:41:49');
 
 -- --------------------------------------------------------
 
@@ -309,9 +326,7 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`produto_id`, `produto_codigo`, `produto_data_cadastro`, `produto_categoria_id`, `produto_marca_id`, `produto_fornecedor_id`, `produto_descricao`, `produto_unidade`, `produto_codigo_barras`, `produto_ncm`, `produto_preco_custo`, `produto_preco_venda`, `produto_estoque_minimo`, `produto_qtde_estoque`, `produto_ativo`, `produto_obs`, `produto_data_alteracao`) VALUES
-(7, '15628934', NULL, 1, 1, 3, 'Celular a4', 'UN', NULL, NULL, '50,00', '100,00', '1', '5', 1, 'Chegou em novo', '2021-03-05 06:30:49'),
-(8, '95871243', NULL, 1, 1, 3, 'teste1', 'PCT', NULL, NULL, '2.560,00', '2.570,00', '1', '0', 1, '', '2021-03-06 00:07:09'),
-(10, '70413859', NULL, 1, 1, 3, 'pc gamer', 'Un', NULL, NULL, '2.000,00', '4.000,00', '1', '1', 1, '', '2021-03-05 06:16:50');
+(11, '36204157', NULL, 4, 6, 4, 'Celular a4', 'Un', NULL, NULL, '500,00', '1.000,00', '1', '3', 1, '', '2021-03-09 17:40:22');
 
 -- --------------------------------------------------------
 
@@ -333,10 +348,9 @@ CREATE TABLE `servicos` (
 --
 
 INSERT INTO `servicos` (`servico_id`, `servico_nome`, `servico_preco`, `servico_descricao`, `servico_ativo`, `servico_data_alteracao`) VALUES
-(1, 'Limpeza geral G - att', '60,00', 'GGGG Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.', 1, '2021-02-14 16:56:46'),
-(2, 'Solda elétrica', '80,00', 'Solda elétrica', 1, '2020-02-13 22:10:21'),
-(3, 'Restauração de componentes', '120,00', 'Restauração de componentes', 1, '2020-02-13 22:11:29'),
-(4, 'Formataçao de Pc', '65,00', 'formatamos pc em geral', 1, '2021-01-20 19:24:51');
+(6, 'formataçao', '50,00', 'dadadas', 1, '2021-03-09 17:30:11'),
+(7, 'Limpeza geral G', '60,00', 'dada', 1, '2021-03-09 17:31:23'),
+(8, 'capinha persinalizada', '40,00', 'colocar capinha personalizada', 1, '2021-03-10 04:47:26');
 
 -- --------------------------------------------------------
 
@@ -403,8 +417,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$8A9DlNKKiHDpX3ORISaVi.LLeAnpnmGJ/vGHLuItSsPzvU.pvQXBq', 'leogames850@gmail.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1615222866, 1, 'leonardo', 'Silva', 'ADMIN', '0'),
-(8, '::1', 'teste', '$2y$10$qCf0vtiPLRTVNyzPl7QA0e0Ws0sxSGdjVyCSqZyrLXGEZwkMBaTyu', 'teste@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1614721335, 1615003065, 1, 'Vendedor', 'teste123', NULL, NULL);
+(1, '127.0.0.1', 'administrator', '$2y$12$8A9DlNKKiHDpX3ORISaVi.LLeAnpnmGJ/vGHLuItSsPzvU.pvQXBq', 'leogames850@gmail.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1615482851, 1, 'leonardo', 'Silva', 'ADMIN', '0'),
+(8, '::1', 'teste', '$2y$10$qCf0vtiPLRTVNyzPl7QA0e0Ws0sxSGdjVyCSqZyrLXGEZwkMBaTyu', 'teste@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1614721335, 1615312027, 0, 'Vendedor', 'teste123', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -493,7 +507,7 @@ CREATE TABLE `vendedores` (
 --
 
 INSERT INTO `vendedores` (`vendedor_id`, `vendedor_codigo`, `vendedor_data_cadastro`, `vendedor_nome_completo`, `vendedor_cpf`, `vendedor_rg`, `vendedor_telefone`, `vendedor_celular`, `vendedor_email`, `vendedor_cep`, `vendedor_endereco`, `vendedor_numero_endereco`, `vendedor_complemento`, `vendedor_bairro`, `vendedor_cidade`, `vendedor_estado`, `vendedor_ativo`, `vendedor_obs`, `vendedor_data_alteracao`) VALUES
-(2, '03841956', '2020-01-29 22:22:27', 'Sara Betina', '582.071.790-23', '25.287.429-8', '(41) 88884-4444', '(41) 88884-4444', 'sara@gmail.com', '80540-120', 'Rua das vendas', '45', '', 'Centro', 'Joinville', 'SC', 1, '', '2021-01-19 19:21:53');
+(3, '40231897', '2021-03-09 17:39:53', 'Josifino', '082.378.059-76', '11.700.951-9', '(43) 33333-3333', '(43) 33333-3333', 'leogames850@gmail.com', '86280-000', 'rua do nerso', '59', 'casa', 'sussumo assanuma', 'urai', 'PR', 1, 'dsdsa', '2021-03-10 03:47:40');
 
 --
 -- Índices para tabelas despejadas
@@ -642,7 +656,7 @@ ALTER TABLE `vendedores`
 -- AUTO_INCREMENT de tabela `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `clientes`
@@ -654,13 +668,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de tabela `contas_pagar`
 --
 ALTER TABLE `contas_pagar`
-  MODIFY `conta_pagar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `conta_pagar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `contas_receber`
 --
 ALTER TABLE `contas_receber`
-  MODIFY `conta_receber_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `conta_receber_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `formas_pagamentos`
@@ -672,7 +686,7 @@ ALTER TABLE `formas_pagamentos`
 -- AUTO_INCREMENT de tabela `fornecedores`
 --
 ALTER TABLE `fornecedores`
-  MODIFY `fornecedor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `fornecedor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `groups`
@@ -690,31 +704,31 @@ ALTER TABLE `login_attempts`
 -- AUTO_INCREMENT de tabela `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `marca_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `marca_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `ordem_tem_servicos`
 --
 ALTER TABLE `ordem_tem_servicos`
-  MODIFY `ordem_ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ordem_ts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de tabela `ordens_servicos`
 --
 ALTER TABLE `ordens_servicos`
-  MODIFY `ordem_servico_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ordem_servico_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `produto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `produto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `servicos`
 --
 ALTER TABLE `servicos`
-  MODIFY `servico_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `servico_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `sistema`
@@ -738,19 +752,19 @@ ALTER TABLE `users_groups`
 -- AUTO_INCREMENT de tabela `vendas`
 --
 ALTER TABLE `vendas`
-  MODIFY `venda_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `venda_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `venda_produtos`
 --
 ALTER TABLE `venda_produtos`
-  MODIFY `id_venda_produtos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_venda_produtos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de tabela `vendedores`
 --
 ALTER TABLE `vendedores`
-  MODIFY `vendedor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `vendedor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restrições para despejos de tabelas

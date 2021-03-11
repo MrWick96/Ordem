@@ -42,7 +42,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a title="Voltar" href="<?php echo base_url('/'); ?>" class="btn btn-success btn-sm float-right"><i class="fas fa-chevron-circle-left"></i>&nbsp;Voltar</a>   
+                <a title="Voltar" href="<?php echo base_url('/'); ?>" class="btn btn-success col-md-1 float-right"><i class="fas fa-chevron-circle-left"></i>&nbsp;Voltar</a>   
             </div>
             <div class="card-body">
 
@@ -69,7 +69,7 @@
                     </fieldset>
 
                     <div class="mt-3">
-                        <button class="btn btn-primary btn-sm mr-2">Gerar relatório</button>
+                        <button class="btn btn-primary col-md-2 mr-2">Gerar relatório</button>
                     </div>
 
                 </form>
