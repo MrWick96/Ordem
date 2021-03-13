@@ -104,8 +104,8 @@
                                         </div>
                                         <div class="modal-body">Para excluir o registro clique em "Sim"</div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Não</button>
-                                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('vendedores/del/'. $vendedor->vendedor_id); ?>">Sim</a>
+                                            <button class="btn btn-dark" type="button" data-dismiss="modal">Não</button>
+                                            <a class="btn btn-danger" href="<?php echo base_url('vendedores/del/'. $vendedor->vendedor_id); ?>">Sim</a>
                                         </div>
                                     </div>
                                 </div>

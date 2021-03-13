@@ -92,8 +92,8 @@
                                     <td class="text-center pr-2"><?php echo ($produto->produto_estoque_minimo == $produto->produto_qtde_estoque ? '<span class="badge bg-warning text-gray-900 btn-sm">'.$produto->produto_qtde_estoque.'</span>' : '<span class="badge bg-info text-white btn-sm">'.$produto->produto_qtde_estoque.'</span>') ?> </td>                                                       
                                     <td class="text-center pr-4"><?php echo ($produto->produto_ativo == 1 ? '<span class="badge bg-info text-white btn-sm">Sim</span>' : '<span class="badge bg-warning text-white btn-sm">Não</span>') ?> </td>
                                     <td class="text-right">
-                                        <a title="Editar" href="<?php echo base_url('produtos/edit/' . $produto->produto_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-user-edit"></i></a>
-                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#produto-<?php echo $produto->produto_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-trash"></i></a>
+                                        <a title="Editar" href="<?php echo base_url('produtos/edit/' . $produto->produto_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-user-edit"></i>&nbsp;&nbsp;Editar</a>
+                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#produto-<?php echo $produto->produto_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-trash"></i>&nbsp;&nbsp;Excluir</a>
                                     </td>
                                 </tr>
 
@@ -108,8 +108,8 @@
                                         </div>
                                         <div class="modal-body">Para excluir o registro clique em "Sim"</div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Não</button>
-                                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('produtos/del/'. $produto->produto_id); ?>">Sim</a>
+                                            <button class="btn btn-dark" type="button" data-dismiss="modal">Não</button>
+                                            <a class="btn btn-danger" href="<?php echo base_url('produtos/del/'. $produto->produto_id); ?>">Sim</a>
                                         </div>
                                     </div>
                                 </div>

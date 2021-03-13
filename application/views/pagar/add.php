@@ -33,9 +33,9 @@
 
                     <fieldset class="mt-4 border p-2">
 
-                        <legend class="font-small" ><i class="fas fa-cash-register"></i>&nbsp;Dados da conta</legend>                       
+                        <legend class="font-small text-dark" ><i class="fas fa-cash-register"></i>&nbsp;Dados da conta</legend>                       
 
-                        <div class="mb-4 row">
+                        <div class="mb-4 row text-dark">
 
                             <div class="col-md-5">
                                 <label>Fornecedor</label>                              

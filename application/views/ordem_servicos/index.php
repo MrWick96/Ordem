@@ -89,8 +89,8 @@
                                     <td class="text-center pr-4"><?php echo ($os->ordem_servico_status == 1 ? '<span class="badge bg-info text-white btn-sm">Paga</span>' : '<span class="badge bg-warning text-white btn-sm">Em aberto</span>') ?> </td>
                                     <td class="text-right">
                                         <a title="Imprimir" href="<?php echo base_url('os/pdf/' . $os->ordem_servico_id); ?>" class="btn btn-sm btn-dark" ><i class="fas fa-print"></i></a>
-                                        <a title="Editar" href="<?php echo base_url('os/edit/' . $os->ordem_servico_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-edit"></i></a>
-                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#os-<?php echo $os->ordem_servico_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-trash"></i></a>
+                                        <a title="Editar" href="<?php echo base_url('os/edit/' . $os->ordem_servico_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-edit"></i>&nbsp;&nbsp;Editar</a>
+                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#os-<?php echo $os->ordem_servico_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-trash"></i>&nbsp;&nbsp;Excluir</a>
                                     </td>
                                 </tr>
 
@@ -105,8 +105,8 @@
                                         </div>
                                         <div class="modal-body">Para excluir o registro clique em "Sim"</div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Não</button>
-                                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('os/del/'. $os->ordem_servico_id); ?>">Sim</a>
+                                            <button class="btn btn-dark" type="button" data-dismiss="modal">Não</button>
+                                            <a class="btn btn-danger" href="<?php echo base_url('os/del/'. $os->ordem_servico_id); ?>">Sim</a>
                                         </div>
                                     </div>
                                 </div>

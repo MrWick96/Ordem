@@ -101,8 +101,8 @@
                                     <td><?php echo $categoria->categoria_nome ?> </td>                                                       
                                     <td class="text-center pr-4"><?php echo ($categoria->categoria_ativa == 1 ? '<span class="badge bg-info text-white btn-sm">Sim</span>' : '<span class="badge bg-warning text-white btn-sm">Não</span>') ?> </td>
                                     <td class="text-right">
-                                        <a title="Editar" href="<?php echo base_url('categorias/edit/' . $categoria->categoria_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-user-edit"></i></a>
-                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#categoria-<?php echo $categoria->categoria_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-trash"></i></a>
+                                        <a title="Editar" href="<?php echo base_url('categorias/edit/' . $categoria->categoria_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-user-edit"></i>&nbsp;&nbsp;Editar</a>
+                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#categoria-<?php echo $categoria->categoria_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-trash"></i>&nbsp;&nbsp;Excluir</a>
                                     </td>
                                 </tr>
 

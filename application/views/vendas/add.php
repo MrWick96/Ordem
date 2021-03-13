@@ -124,8 +124,8 @@
                                     <label class="small my-0">Tipo da venda<span class="text-danger">*</span></label>
                                     <select class="custom-select" id="venda_tipo" name="venda_tipo" required="">
                                         <option value="">Escolha...</option>
-                                        <option value="1">Venda à vista</option>
-                                        <option value="2">Venda à prazo</option>
+                                        <option value="1">Venda a vista</option>
+                                        <option value="2">Venda a prazo</option>
                                     </select>
                                     <?php echo form_error('venda_tipo', '<div class="text-danger small">', '</div>') ?>
                                 </div>

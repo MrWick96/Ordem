@@ -103,8 +103,8 @@
                                     <td><?php echo ($cliente->cliente_tipo == 1 ? 'Pessoa física' : 'Pessoa jurídica') ?> </td>
                                     <td class="text-center pr-4"><?php echo ($cliente->cliente_ativo == 1 ? '<span class= "badge bg-info text-white btn-sm" >Sim</span>' : '<span class="badge bg-warning text-white btn-sm">Não</span>') ?> </td>
                                     <td class="text-right">
-                                        <a title="Editar" href="<?php echo base_url('clientes/edit/' . $cliente->cliente_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-user-edit"></i></a>
-                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#cliente-<?php echo $cliente->cliente_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-trash"></i></a>
+                                        <a title="Editar" href="<?php echo base_url('clientes/edit/' . $cliente->cliente_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-user-edit"></i>&nbsp;&nbsp;Editar</a>
+                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#cliente-<?php echo $cliente->cliente_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-trash"></i>&nbsp;&nbsp;Excluir</a>
                                     </td>
                                 </tr>
 
@@ -117,10 +117,10 @@
                                                 <span aria-hidden="true">×</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body">dsdsdsds</div>
+                                        <div class="modal-body">Para excluir o resgistro Clique em "Sim".</div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Não</button>
-                                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('clientes/del/' . $cliente->cliente_id); ?>">Sim</a>
+                                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Não</button>
+                                            <a class="btn btn-danger" href="<?php echo base_url('clientes/del/' . $cliente->cliente_id); ?>">Sim</a>
                                         </div>
                                     </div>
                                 </div>

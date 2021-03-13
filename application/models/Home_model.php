@@ -119,7 +119,7 @@ class Home_model extends CI_Model {
     public function get_contas_receber_vencidas() {
 
         $this->db->where('conta_receber_data_vencimento <', date('Y-m-d'));
-        $this->db->where('conta_receber_status <', 0);
+        $this->db->where('conta_receber_status', 0);
 
         return $this->db->get('contas_receber')->row();
     }
@@ -127,7 +127,7 @@ class Home_model extends CI_Model {
     public function get_contas_pagar_vencidas() {
 
         $this->db->where('conta_pagar_data_vencimento <', date('Y-m-d'));
-        $this->db->where('conta_pagar_status <', 0);
+        $this->db->where('conta_pagar_status', 0);
 
         return $this->db->get('contas_pagar')->row();
     }

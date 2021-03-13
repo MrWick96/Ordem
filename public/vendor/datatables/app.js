@@ -86,16 +86,6 @@ $(document).ready(function () {
                     "notBetween": "Não Entre",
                     "notEmpty": "Não Vazio"
                 },
-                "moment": {
-                    "after": "Depois",
-                    "before": "Antes",
-                    "between": "Entre",
-                    "empty": "Vazio",
-                    "equals": "Igual",
-                    "not": "Não",
-                    "notBetween": "Não Entre",
-                    "notEmpty": "Não Vazio"
-                },
                 "number": {
                     "between": "Entre",
                     "empty": "Vazio",

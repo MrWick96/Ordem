@@ -117,8 +117,8 @@
                                     </td>
 
                                     <td class="text-right">
-                                        <a title="Editar" href="<?php echo base_url('receber/edit/' . $conta->conta_receber_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-user-edit"></i></a>
-                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#conta-<?php echo $conta->conta_receber_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-trash"></i></a>
+                                        <a title="Editar" href="<?php echo base_url('receber/edit/' . $conta->conta_receber_id); ?>" class="btn btn-sm btn-primary" ><i class="fas fa-user-edit"></i>&nbsp;&nbsp;Editar</a>
+                                        <a title="Excluir" href="javascript (void)" data-toggle="modal" data-target="#conta-<?php echo $conta->conta_receber_id; ?>" class="btn btn-sm btn-danger" ><i class="fas fa-trash"></i>&nbsp;&nbsp;Excluir</a>
                                     </td>
                                 </tr>
 
@@ -133,8 +133,8 @@
                                         </div>
                                         <div class="modal-body">Para excluir o registro clique em "Sim"</div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Não</button>
-                                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('receber/del/' . $conta->conta_receber_id); ?>">Sim</a>
+                                            <button class="btn btn-dark" type="button" data-dismiss="modal">Não</button>
+                                            <a class="btn btn-danger" href="<?php echo base_url('receber/del/' . $conta->conta_receber_id); ?>">Sim</a>
                                         </div>
                                     </div>
                                 </div>

@@ -52,8 +52,8 @@
                                     <div class="form-group">
                                         <input type="email" name="email" class="form-control" placeholder="Entre com seu e-mail...">
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" name="password" class="form-control"  placeholder="Entre com sua senha">
+                                    <div class="form-group">                         
+                                        <input type="password" name="password" class="form-control "  placeholder="Entre com sua senha">
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">Entrar</button>
                                 </form>

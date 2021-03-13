@@ -49,12 +49,12 @@ class Financeiro_model extends CI_Model {
         }
         return $this->db->get('contas_receber')->result();
     }
-    
+
     public function get_sum_contas_receber_relatorio($conta_receber_status = NULL, $data_vencimento = NULL) {
 
-       $this->db->select([
-                'FORMAT(SUM(REPLACE(conta_receber_valor, ",", "")), 2) as conta_receber_valor_total',
-            ]);
+        $this->db->select([
+            'FORMAT(SUM(REPLACE(conta_receber_valor, ",", "")), 2) as conta_receber_valor_total',
+        ]);
 
         $this->db->where('conta_receber_status', $conta_receber_status);
 
@@ -66,7 +66,7 @@ class Financeiro_model extends CI_Model {
         }
         return $this->db->get('contas_receber')->row();
     }
-    
+
     public function get_contas_pagar_relatorio($conta_pagar_status = NULL, $data_vencimento = NULL) {
 
         $this->db->select([
@@ -74,7 +74,6 @@ class Financeiro_model extends CI_Model {
             'fornecedor_id',
             'fornecedor_nome_fantasia',
             'fornecedor_cnpj',
-            
         ]);
 
         $this->db->where('conta_pagar_status', $conta_pagar_status);
@@ -88,12 +87,12 @@ class Financeiro_model extends CI_Model {
         }
         return $this->db->get('contas_pagar')->result();
     }
-    
+
     public function get_sum_contas_pagar_relatorio($conta_pagar_status = NULL, $data_vencimento = NULL) {
 
-       $this->db->select([
-                'FORMAT(SUM(REPLACE(conta_pagar_valor, ",", "")), 2) as conta_pagar_valor_total',
-            ]);
+        $this->db->select([
+            'FORMAT(SUM(REPLACE(conta_pagar_valor, ",", "")), 2) as conta_pagar_valor_total',
+        ]);
 
         $this->db->where('conta_pagar_status', $conta_pagar_status);
 

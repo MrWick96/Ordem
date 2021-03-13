@@ -101,7 +101,7 @@
 
                         <a title="Gerenciar receber vencem hoje" class="dropdown-item d-flex align-items-center" href="<?php echo base_url('receber'); ?>">
                             <div class="mr-3">
-                                <div class="icon-circle bg-success">
+                                <div class="icon-circle bg-warning">
                                     <i class="fas fa-hand-holding-usd fa-lg text-white"></i>
                                 </div>
                             </div>

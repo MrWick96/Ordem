@@ -52,16 +52,6 @@ class Formas_pagamentos extends CI_Controller {
 
                 $forma_pagamento_ativa = $this->input->post('forma_pagamento_ativa');
 
-                //para vendas
-
-                if ($this->db->table_exists('vendas')) {
-
-                    if ($forma_pagamento_ativa == 0 && $this->core_model('vendas', array('venda_forma_pagamento_id' => $forma_pagamento_id , 'venda_status' => 0))) {
-                        $this->session->set_flashdata('info', 'Forma de pagamento não pode ser desativada, pois está sendo utilizada em Vendas');
-                        redirect('modulo');
-                    }
-                }
-
 
                 //Para ordem de serviços
 
